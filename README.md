@@ -1,2 +1,2 @@
-# Web-sovellusprojekti
+# Web-sovelluskehityksen peruskurssin testirepo
  
