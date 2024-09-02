@@ -37,6 +37,7 @@ h4 {
 p {
     font-family: 'Georgia', serif;
     font-weight: 400;
+    font-size: 15px;
     margin: 0;
     padding: 0;
 }
@@ -107,4 +108,17 @@ a {
     margin: 10px; /* Adds space outside the border */
     border-radius: 8px; /* Optional: adds rounded corners to the border */
     background-color: #eaeff2; /* Optional: adds background color inside the border */
+}
+
+.studies-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+    text-align: left;
+}
+
+.studies-table th, .studies-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
