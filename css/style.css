@@ -99,7 +99,7 @@ a {
 }
 
 .contact-form input[type="submit"]:hover {
-    background-color: #154168; /* Darker green on hover */
+    background-color: #244969; /* Darker green on hover */
 }
 
 .bordered-section {
@@ -108,6 +108,12 @@ a {
     margin: 10px; /* Adds space outside the border */
     border-radius: 8px; /* Optional: adds rounded corners to the border */
     background-color: #eaeff2; /* Optional: adds background color inside the border */
+}
+
+.site-container {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1cap;
 }
 
 .studies-table {
