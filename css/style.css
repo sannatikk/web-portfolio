@@ -205,6 +205,12 @@ button {
 /* Hide the menu by default */
 .nav-menu {
     display: none;
+    position: absolute; /* Position the menu */
+    border: 1px solid #ddd; /* Optional border */
+    background-color: #f1f4f6; /* Background color */
+    border-radius: 5px; /* Optional rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding-right: 20px;
 }
 
 /* When active, show the menu */
