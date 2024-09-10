@@ -12,7 +12,18 @@
     
     <div class="site-container">
     <section id="header">
-    <nav>
+
+    <!--
+    <nav id="siteLanguage">
+    <center>
+        <button id="languageFin">Suomeksi</button>
+        <button id="languageEng">In English</button>
+        <br><br>
+    </center>
+    </nav>
+    -->
+
+    <nav id="siteInfo">
     <center>
     <a href="#about">about</a> ||
     <a href="#studies">studies</a> ||
@@ -20,8 +31,6 @@
     <a href="#contact">contact</a>
     </center>
     </nav>
-
-    <!-- add option for fin/eng? -->
   
     <center>
     <br>
@@ -157,8 +166,12 @@
         <br><img src="assets/pictures/linkedinlogo.png" alt="linkedin logo" width="14"> <a href="https://www.linkedin.com/in/sanna-poritikkakoski/">sanna-poritikkakoski</a>
         <br><img src="assets/pictures/githublogo.png" alt="github logo" width="14"> <a href="https://github.com/sannatikk">sannatikk</a>
         <br><br>
-        <!-- make submit form actually do something -->
-        <form action="submit_form.php" method="post" class="contact-form">
+
+        <button id="emailButton">Drop me a line!</button>
+        <br><br>
+        
+        <!--
+        <form id="contactMe" action="mailto:t3posa01@students.oamk.fi" method="post" class="contact-form">
             <label for="name">Your name:*</label>
             <input type="text" id="name" name="name" required>
     
@@ -173,10 +186,13 @@
     
             <input type="submit" value="Send Message">
         </form>
-        <br>
+         -->
+
     </section>
 
     </div>
+
+    <script src="assets/javascript/actions.js"></script>
     </body>
 
 

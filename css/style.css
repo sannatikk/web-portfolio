@@ -56,58 +56,12 @@ a {
     text-decoration: underline;
 }
 
-/* Styling for the contact form */
-.contact-form {
-    border: 1px solid #ccc; /* Thin border around the form */
-    padding: 20px;
-    background-color: #f8f8f8;
-    max-width: 400px; /* Maximum width of the form */
-    margin: 0 auto; /* Center the form */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-sizing: border-box;
-}
-
-/* Styling for form labels */
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: normal;
-}
-
-/* Styling for form inputs and textarea */
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="tel"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Styling for the submit button */
-.contact-form input[type="submit"] {
-    background-color: #2e5a7a; /* Green background */
-    color: white; /* White text */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.contact-form input[type="submit"]:hover {
-    background-color: #244969; /* Darker green on hover */
-}
-
 .bordered-section {
-    border: 1px solid #333; /* Defines the border's width, style, and color */
-    padding: 1cap; /* Adds space inside the border */
-    margin: 10px; /* Adds space outside the border */
-    border-radius: 8px; /* Optional: adds rounded corners to the border */
-    background-color: #eaeff2; /* Optional: adds background color inside the border */
+    border: 1px solid #333; 
+    padding: 1cap; 
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #eaeff2;
 }
 
 .site-container {
@@ -128,3 +82,67 @@ a {
     border: 1px solid #ddd;
     padding: 8px;
 }
+
+button {
+    background-color: #2e5a7a;
+    font-family: 'Georgia', serif;
+    color: white; 
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/*
+
+#languageFin {
+    padding: 3px 10px;
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+}
+
+#languageEng {
+    padding: 3px 10px;
+    font-family: 'Georgia', serif;
+    font-size: 13px;
+
+}
+
+.contact-form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f8f8f8;
+    max-width: 400px; 
+    margin: 0 auto;
+    border-radius: 4px; 
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #2e5a7a;
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+ */
