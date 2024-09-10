@@ -237,6 +237,11 @@ nav ul li a {
 
 
 
+/* Styling for quote section */
+#fetchQuoteButton {
+    margin-bottom: 20px;
+}
+
 
 /* Flex container for images */
 .image-grid {
@@ -254,6 +259,19 @@ nav ul li a {
     max-width: 200px; /* Maximum width of images */
     flex: 1 1 200px; /* Flex-grow and flex-shrink with a basis of 200px */
     box-sizing: border-box; /* Include padding and border in the width */
+
+}
+.puffin-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    height: 320px;
+}
+.puffin-gallery img {
+    max-height: 300px;
+    width: auto;
+    object-fit: contain;
 
 }
 

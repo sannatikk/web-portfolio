@@ -1,4 +1,4 @@
-// Function to confirm form submission
+// Function to confirm contact form submission
 function confirmSubmission() {
     return confirm("Are you sure you want to submit the form?");
 }
@@ -23,7 +23,7 @@ function closeMenu() {
     hamburger.classList.remove('active');
 }
 
-// Attach event listeners to links to close the menu on click
+// Attach event listeners to links to close the hamburger menu on click
 function setupMenuLinks() {
     const menuLinks = document.querySelectorAll('.nav-menu a'); // Select all menu links
     menuLinks.forEach(link => {
@@ -31,8 +31,85 @@ function setupMenuLinks() {
     });
 }
 
-// Setup menu links after the DOM has loaded
+// Setup hamburger menu links after the DOM has loaded
 document.addEventListener('DOMContentLoaded', setupMenuLinks);
+
+// Function to display a random quote from The Office
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('fetchQuoteButton').addEventListener('click', function() {
+
+        // Array of quotes to display
+        const quotes = [
+            "I love inside jokes. I'd love to be part of one someday. - Michael Scott",
+            "Identity theft is not a joke, Jim! - Dwight Schrute",
+            "I just want to lie on the beach and eat hot dogs. That's all I've ever wanted. - Kevin Malone",
+            "I'm not superstitious, but I am a little stitious. - Michael Scott",
+            "I don't hate it. I just don't like it at all and it's terrible. - Michael Scott",
+            "I am Beyoncé, always. - Michael Scott",
+            "I am running away from my responsibilities. And it feels good. - Michael Scott",
+            "I knew exactly what to do. But in a much more real sense, I had no idea what to do. - Michael Scott",
+        ];
+
+        // Select a random quote from the array
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const randomQuote = quotes[randomIndex];
+
+        // Split the quote and the author based on the dash "-"
+        const [quoteText, quoteAuthor] = randomQuote.split(" - ");
+
+        // Display the quote and author separately
+        document.getElementById('quoteText').textContent = `"${quoteText}"`;  // Italicized quote
+        document.getElementById('quoteText').style.fontStyle = 'italic';      // Apply italic styling
+
+        document.getElementById('quoteAuthor').textContent = `- ${quoteAuthor}`;  // Author on a new line
+        document.getElementById('quoteAuthor').style.fontStyle = 'normal';    // Ensure author is not italicized
+    });
+});
+
+
+
+// Define a Slideshow class to encapsulate image slideshow behavior
+class Slideshow {
+    constructor(images, containerId, interval) {
+        this.images = images;
+        this.container = document.getElementById(containerId);
+        this.currentIndex = 0;
+        this.interval = interval;
+        this.startSlideshow();
+    }
+
+    // Method to display the current image
+    showImage() {
+        const { src, alt } = this.images[this.currentIndex];
+        this.container.innerHTML = `
+            <img src="${src}" alt="${alt}" style="max-width:100%; height:auto;" />
+        `;
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    }
+
+    // Method to start the image slideshow
+    startSlideshow() {
+        this.showImage(); // Display the first image
+        setInterval(() => this.showImage(), this.interval);
+    }
+}
+
+// Initialize the Slideshow class once the DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    const puffinImages = [
+        { src: 'assets/pictures/puffin1.jpg', alt: 'Puffin 1' },
+        { src: 'assets/pictures/puffin2.jpg', alt: 'Puffin 2' },
+        { src: 'assets/pictures/puffin3.jpg', alt: 'Puffin 3' },
+        { src: 'assets/pictures/puffin4.jpg', alt: 'Puffin 4' },
+        { src: 'assets/pictures/puffin5.jpg', alt: 'Puffin 5' }
+    ];
+    
+    // Create a new Slideshow object
+    const puffinSlideshow = new Slideshow(puffinImages, 'puffin-gallery', 3000);
+});
+
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formattedTime = formatter.format(now);
 
         // Display the formatted time
-        document.getElementById('time-display').textContent = `Current time in Eastern European Time: ${formattedTime}`;
+        document.getElementById('time-display').textContent = `Current time in Eastern European Time is: ${formattedTime}`;
     });
 });
 
