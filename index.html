@@ -23,6 +23,24 @@
     </nav>
     -->
 
+        <!-- Hamburger Icon -->
+    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>   
+
+    <!-- Navigation Menu -->
+<nav id="navMenu" class="nav-menu">
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#studies">Studies</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+    <!--
     <nav id="siteInfo">
     <center>
     <a href="#about">about</a> ||
@@ -31,6 +49,7 @@
     <a href="#contact">contact</a>
     </center>
     </nav>
+    -->
   
     <center>
     <br>
@@ -166,7 +185,7 @@
         <br><img src="assets/pictures/githublogo.png" alt="github logo" width="14"> <a href="https://github.com/sannatikk">sannatikk</a>
         <br><br>
 
-        <form action="https://formspree.io/f/xyzgvrby" method="post" class="contact-form">
+        <form action="https://formspree.io/f/xyzgvrby" method="post" onsubmit="return confirmSubmission()" class="contact-form">
             <label for="name">Your name:*</label>
             <input type="text" id="name" name="name" required>
     
@@ -180,6 +199,7 @@
             <textarea id="message" name="message" rows="4" required></textarea>
     
             <input type="submit" value="Send Message">
+
         </form><br>
 
         
