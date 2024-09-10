@@ -15,7 +15,7 @@
     background-color: #eaeff2;
 }
 
-#about, #contact {
+#about, #contact, #playground-info {
     flex: 0 100%;
 }
 
@@ -234,6 +234,29 @@ nav ul li a {
     color: #333;
     font-size: 14px;
 }
+
+
+
+
+/* Flex container for images */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    gap: 10px; /* Space between images */
+    justify-content: center; /* Center images horizontally */
+}
+
+.image-grid img {
+    display: block;
+    width: 100%; /* Full width of its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Rounded corners */
+    max-width: 200px; /* Maximum width of images */
+    flex: 1 1 200px; /* Flex-grow and flex-shrink with a basis of 200px */
+    box-sizing: border-box; /* Include padding and border in the width */
+
+}
+
 
 @media (max-width: 600px) {
     .flex-container {
