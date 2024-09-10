@@ -35,6 +35,32 @@ function setupMenuLinks() {
 document.addEventListener('DOMContentLoaded', setupMenuLinks);
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('fetchTimeButton').addEventListener('click', function() {
+        // Get the current date and time
+        const now = new Date();
+
+        // Define options for formatting the date/time
+        const options = {
+            timeZone: 'Europe/Helsinki', // Eastern European Time (EET)
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour12: false
+        };
+
+        // Format the current date/time for the specified time zone
+        const formatter = new Intl.DateTimeFormat('en-US', options);
+        const formattedTime = formatter.format(now);
+
+        // Display the formatted time
+        document.getElementById('time-display').textContent = `Current time in Eastern European Time: ${formattedTime}`;
+    });
+});
+
 /*
 document.getElementById("emailButton").addEventListener("click", function() {
     window.location.href = 'mailto:t3posa01@students.oamk.fi?subject=Hello%20There&body=I%20found%20your%20test%20website';

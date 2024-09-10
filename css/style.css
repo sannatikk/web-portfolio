@@ -257,6 +257,9 @@ nav ul li a {
 
 }
 
+#fetchTimeButton {
+    margin-bottom: 20px;
+}
 
 @media (max-width: 600px) {
     .flex-container {
