@@ -108,17 +108,36 @@ table {
     text-align: left;
 }
 
-.studies-table th, .studies-table td {
+table, th, td {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-.studies-table tbody tr:nth-child(odd) {
+table tbody tr:nth-child(odd) {
     background-color: #e2eaee;
 }
 
-.studies-table thead {
+/* .studies-table thead {
     background-color: #f1f4f6;
+} */
+
+.carParkTable th, .carParkTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+
+}
+
+#carParkTable th {
+    cursor: pointer;
+    position: relative; /* For positioning the hint */
+}
+
+/* Style for a subtle sort icon or label before user interaction */
+#carParkTable th::after {
+    content: ' ⇅';  /* This will show an up/down arrow next to each column */
+    font-size: 0.8em;
+    color: rgb(52, 52, 52);
+    margin-left: 5px;
 }
 
 .contact-form {
@@ -260,6 +279,10 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+#errorMessage {
+    color: rgb(144, 51, 51);
+  }
+
 /*
 #languageFin {
     padding: 3px 10px;
@@ -276,7 +299,7 @@ nav ul li a {
 
 @media (max-width: 600px) {
     .flex-container {
-        flex-direction: column; /* Stack items vertically on small screens */
+        flex-direction: column; /* stack items vertically on small screens */
         flex: 1 1 100%
     }
 }

@@ -1,3 +1,5 @@
+// HAMBURGER MENU ACTIONS
+
 // Function to toggle  hamburger menu
 function toggleMenu() {
     const menu = document.getElementById('navMenu') || document.getElementById('navMenu2');
@@ -30,11 +32,15 @@ function setupMenuLinks() {
 document.addEventListener('DOMContentLoaded', setupMenuLinks);
 
 
+// CONTACT FORM ACTIONS
+
 // Function to confirm contact form submission
 function confirmSubmission() {
     return confirm("Are you sure you want to submit the form?");
 }
 
+
+// QUOTE ACTIONS
 
 // Function to display a random quote
 document.addEventListener('DOMContentLoaded', function() {
@@ -72,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// SLIDESHOW ACTIONS
 
 // Define a Slideshow class to encapsulate image slideshow behavior
 class Slideshow {
@@ -114,6 +121,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+// TIME FETCH ACTIONS
+
 // Function to fetch the current time in Oulu
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fetchTimeButton').addEventListener('click', function() {
@@ -140,3 +149,124 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('time-display').textContent = `Current time in Eastern European Time is: ${formattedTime}`;
     });
 });
+
+
+// PARKING LOT ACTIONS
+
+// oulunliikenne API url
+const apiURL = 'https://api.oulunliikenne.fi/proxy/graphql';
+
+// reference to the table body and other elements
+const tableBody = document.getElementById('tableBody');
+const carParkTable = document.getElementById('carParkTable');
+const loadingMessage = document.getElementById('loadingMessage');
+const errorMessage = document.getElementById('errorMessage');
+
+// Button click event listener
+document.getElementById('fetchParkingButton').addEventListener('click', () => {
+  // Clear previous data and messages
+  tableBody.innerHTML = '';
+  carParkTable.style.display = 'none';
+  loadingMessage.style.display = 'block';
+  errorMessage.style.display = 'none';
+
+  // API request body (GraphQL query)
+  const requestBody = JSON.stringify({
+    query: "{ carParks { name, maxCapacity, spacesAvailable } }"
+  });
+
+  // Fetch data from the API
+  fetch(apiURL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: requestBody
+  })
+  .then(response => response.json()) // Parse the response as JSON
+  .then(data => {
+    loadingMessage.style.display = 'none'; // Hide loading message
+
+    if (data.data && data.data.carParks) {
+      // Track unique lot names to prevent duplicates
+      const uniqueNames = new Set();
+      const rows = data.data.carParks
+        .filter(park => {
+          const name = park.name || "unknown ☹";
+          if (uniqueNames.has(name)) {
+            return false; // Skip duplicates
+          } else {
+            uniqueNames.add(name);
+            return true;
+          }
+        })
+        .map(park => {
+          // Replace null or undefined values with "unknown ☹"
+          const name = park.name || "unknown ☹";
+          const maxCapacity = park.maxCapacity != null ? park.maxCapacity : "unknown ☹";
+          const spacesAvailable = park.spacesAvailable != null ? park.spacesAvailable : "unknown ☹";
+  
+          return `<tr>
+            <td>${name}</td>
+            <td>${maxCapacity}</td>
+            <td>${spacesAvailable}</td>
+          </tr>`;
+        });
+
+      // Populate the table with unique car park data
+      tableBody.innerHTML = rows.join('');
+      carParkTable.style.display = 'table'; // Show the table
+    } else {
+      errorMessage.style.display = 'block'; // Show error message if data is not as expected
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+    loadingMessage.style.display = 'none'; // Hide loading message
+    errorMessage.style.display = 'block';  // Show error message
+  });
+});
+
+// let user sort by column contents
+
+let sortOrder = {}; // Keeps track of sorting order for each column
+
+function sortTable(columnIndex) {
+    const table = document.getElementById("carParkTable");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    
+    // Toggle sort order: Ascending or Descending
+    sortOrder[columnIndex] = !sortOrder[columnIndex];
+    
+    rows.sort((rowA, rowB) => {
+        const cellA = rowA.querySelectorAll("td")[columnIndex].textContent.trim();
+        const cellB = rowB.querySelectorAll("td")[columnIndex].textContent.trim();
+        
+        if (!isNaN(cellA) && !isNaN(cellB)) {
+            // Sort numerically if the column contains numbers
+            return sortOrder[columnIndex] ? cellA - cellB : cellB - cellA;
+        } else {
+            // Sort alphabetically for text columns
+            return sortOrder[columnIndex] ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
+        }
+    });
+
+    // Clear and re-add sorted rows
+    tbody.innerHTML = "";
+    rows.forEach(row => tbody.appendChild(row));
+
+    // Update sorting arrows
+    updateArrows(columnIndex);
+}
+
+function updateArrows(columnIndex) {
+    // Clear all arrow indicators
+    for (let i = 0; i < 3; i++) { // Assuming 3 columns, adjust if more
+        document.getElementById(`arrow${i}`).textContent = '';
+    }
+
+    // Add the appropriate arrow to the sorted column
+    const arrow = sortOrder[columnIndex] ? '▼' : '▲';
+    document.getElementById(`arrow${columnIndex}`).textContent = arrow;
+}
