@@ -325,4 +325,9 @@ nav ul li a {
     button {
         margin: 10px 0; /* Add extra space between buttons */
     }
+
+    h1 {
+        font-size: 50px;
+    }
+    
 }
