@@ -2,43 +2,53 @@
 <html lang="en">
 
     <head> 
-    <meta charset="UTF-8">
-    <title>Sanna Tikkakoski</title> <!-- sivun otsikko/nimi, ei näy muualla -->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Sanna Tikkakoski</title> <!-- sivun otsikko/nimi, ei näy muualla -->
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-    
-    <div class="site-container">
-    <header id="header">
+        <div class="site-container">
 
-    <!--
-REMEMBER I NEED TO ADD THE HAMBURGER MENU TO THIS PAGE
-    -->
-  
-    <center>
-    <br>
-    <h1>Sanna Tikkakoski</h1>
-    <h2>Software Engineering Student Portfolio</h2>
+            <header id="header">
 
-    <p>Oulu University of Applied Scienes
-        <br> Oulu, Finland
-        <br><br>
-    </p>
-    </center>
-</header>
+                <!-- Hamburger Icon -->
+                <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>   
 
-    <div class="flex-container">
+                <!-- Navigation Menu -->
+                <nav id="navMenu3" class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Return Home</a></li>
+                        <li><a href="playground.html">PLAYGROUND</a></li>
+                    </ul>
+                </nav>
+            
+                <center>
+                <h1>Sanna Tikkakoski</h1>
+                    <h2>Software Engineering Student Portfolio</h2>
+                        <p>
+                            Oulu University of Applied Scienes
+                            <br>Oulu, Finland<br><br>
+                        </p>
+                </center>
 
-    <section id="thanks" class="flex-item bordered-section">
-        <h2>Thank you for getting in touch!</h2>
-        <p>I'll get back to you as soon as possible.
-        <br><br><a href="index.html">Click here</a> to return to my main page.
-        </p>
-    </section>
+            </header>
 
-    </div>
-    </div>
+            <div class="flex-container">
+                <section id="about" class="flex-item bordered-section">
+                    <h3>Thanks!</h3>
+                        <p>
+                            Thank you for getting in touch! I'll get back to you as soon as I can.
+                            <br><br><a href="index.html">Click here</a> to return to the home page.
+                        </p>
+                </section>
+            </div>
+        </div>
+        <script src="assets/javascript/actions.js"></script>
     </body>
 </html>

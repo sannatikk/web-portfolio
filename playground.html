@@ -2,123 +2,128 @@
 <html lang="en">
 
     <head> 
-    <meta charset="UTF-8">
-    <title>Sanna Tikkakoski</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <title>Sanna Tikkakoski</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
 
     <body>
-    
-    <div class="site-container">
-    <header id="header">
+        <div class="site-container">
+        
+            <header id="header">
 
-    <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>   
+                <div class="hamburger-menu" id="hamburger-menu" onclick="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>   
 
-<nav id="navMenu2" class="nav-menu">
-    <ul>
-        <li><a href="index.html">Return Home</a></li>
-    </ul>
-</nav>
-  
-    <center>
-    <br>
-    <h1>Sanna Tikkakoski</h1>
-    <h2>Web Development Course Project Bonus Content!</h2>
-
-    <p>Oulu University of Applied Scienes
-        <br> Oulu, Finland
-        <br><br>
-    </p>
-    </center>
-</header>
-
-    <div class="flex-container">
-
-    <section id="playground-info" class="flex-item bordered-section">
-        <h3>Welcome to the Project Playground</h3>
-        <p>This specific page is dedicated to my Web Development course, whose grading criteria requires certain elements to be present on this website that don't fit into a traditional portfolio. 
-            Therefore, this might get deleted later. Enjoy it while it lasts! 
-        </p>
-    </section>
-
-    <article id="current-time" class="flex-item bordered-section">
-        <h3>Current Time</h3>
-        <p>Click the button to find out the current time in Oulu, Finland:
-        <br><br>
-        <button id="fetchTimeButton">What's the Time?</button>
-        <div id="time-display"></div>
-        </p>
-    </article>
-
-    <article id="quote" class="flex-item bordered-section">
-        <h3>Random Quote</h3>
-        <p>Click the button to get a great quote:
-        <br><br>
-        <button id="fetchQuoteButton">Give Me a Quote!</button>
-        <div id="quoteDisplay">
-            <span id="quoteText"></span>
-            <br>
-            <span id="quoteAuthor"></span>
-        </div>
-        </p></article>
-
-    <article id="puffins" class="flex-item bordered-section">
-        <h3>Puffins!!!</h3>
-        <p>Puffins are any of three small species of alcids in the bird genus Fratercula with a brightly coloured beak during the breeding season. These are pelagic seabirds that feed primarily by diving in the water. They breed in large colonies on coastal cliffs or offshore islands, nesting in crevices among rocks or in burrows in the soil. Two species, the tufted puffin and horned puffin, are found in the North Pacific Ocean, while the Atlantic puffin is found in the North Atlantic Ocean.
-        <br><br>Here are some of my favorite photos of puffins:
-        <br><br></p>
-        <div id="puffin-gallery" class="puffin-gallery"></div>
-
-    </article>
-
-    <article id="parkingSpots" class="flex-item bordered-section">
-        <h3>Had enough of driving?</h3>
-        <p>
-            Click the button to find out how many parking spots are currently available in public parking lots in Oulu, Finland:
-            <br><br>
-            <button id="fetchParkingButton">How's the Parking?</button>
-            <br><br>
-    
-            <table id="carParkTable" style="display: none;"> <!-- hide at first -->
-                <thead>
-                    <tr>
-                        <th onclick="sortTable(0)">Lot Name <span id="arrow0"></span></th>
-                        <th onclick="sortTable(1)">Max Capacity <span id="arrow1"></span></th>
-                        <th onclick="sortTable(2)">Spaces Available <span id="arrow2"></span></th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    <!-- rows will be dynamically added here -->
-                </tbody>
-            </table>
+                <nav id="navMenu2" class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Return Home</a></li>
+                    </ul>
+                </nav>
             
-            <div id="parkingLoadingMessage" style="display:none;">Loading data...</div>
-            <div id="parkingErrorMessage" style="display:none;">Error fetching data. Please try again later.</div>
-        </p>
-    </article>
+                <center>
+                <h1>Sanna Tikkakoski</h1>
+                    <h2>Web Development Course Project Bonus Content!</h2>
+                        <p>
+                            Oulu University of Applied Scienes
+                            <br>Oulu, Finland<br><br>
+                        </p>
+                </center>
 
-    <article id="petPics" class="flex-item bordered-section">
-        <h3>Feeling down?</h3>
-        <p>
-            Puffins weren't enough to lift your spirits? How unusual. Click either button to see a picture of a cute pet:
-            <br><br>
-            <button id="fetchDogButton">Show Me a Dog!</button>
-            <button id="fetchCatButton">Show Me a Cat!</button>
-            <br><br>
-            <div id="dogPic"></div>
-            <div id="catPic"></div>
-            <div id="petLoadingMessage" style="display:none;">Loading...</div>
-            <div id="petErrorMessage" style="display:none;">Error fetching data. Please try again.</div>
-        </p>
-    </article>
+            </header>
 
-    </div>
-    </div>
-    <script src="assets/javascript/actions.js"></script>
+            <div class="flex-container">
+
+                <section id="playground-info" class="flex-item bordered-section">
+                    <h3>Welcome to the Project Playground</h3>
+                        <p>
+                            This specific page is dedicated to my Web Development course, whose grading criteria requires certain elements to be present on this website that don't fit into a traditional portfolio. 
+                            Therefore, this might get deleted later. Enjoy it while it lasts! 
+                        </p>
+                </section>
+
+                <article id="current-time" class="flex-item bordered-section">
+                    <h3>Current Time</h3>
+                        <p>
+                            Click to find out the current time in Oulu:
+                            <br><br>
+                            <button id="fetchTimeButton">What's the Time?</button>
+                            <div id="time-display"></div>
+                        </p>
+                </article>
+
+                <article id="quote" class="flex-item bordered-section">
+                    <h3>Random Quote</h3>
+                        <p>
+                            Click to get a great quote:
+                            <br><br>
+                            <button id="fetchQuoteButton">Give Me a Quote!</button>
+                            <div id="quoteDisplay">
+                                <span id="quoteText"></span>
+                                <br>
+                                <span id="quoteAuthor"></span>
+                            </div>
+                        </p>
+                </article>
+
+                <article id="puffins" class="flex-item bordered-section">
+                    <h3>Puffins!!!</h3>
+                        <p>
+                            Puffins are any of three small species of alcids in the bird genus Fratercula with a brightly coloured beak during the breeding season. These are pelagic seabirds that feed primarily by diving in the water. They breed in large colonies on coastal cliffs or offshore islands, nesting in crevices among rocks or in burrows in the soil. Two species, the tufted puffin and horned puffin, are found in the North Pacific Ocean, while the Atlantic puffin is found in the North Atlantic Ocean.
+                            <br><br>Here are some of my favorite photos of puffins:
+                            <br><br>                    
+                            <div id="puffin-gallery" class="puffin-gallery"></div>
+                        </p>
+
+                </article>
+
+                <article id="parkingSpots" class="flex-item bordered-section">
+                    <h3>Had enough of driving?</h3>
+                    <p>
+                        Click the button to find out how many parking spots are currently available in public parking lots in Oulu, Finland:
+                            <br><br>
+                            <button id="fetchParkingButton">How's the Parking?</button>
+                            <br><br>
+                        <table id="carParkTable" style="display: none;"> <!-- hide at first -->
+                            <thead>
+                                <tr>
+                                    <th onclick="sortTable(0)">Lot Name <span id="arrow0"></span></th>
+                                    <th onclick="sortTable(1)">Max Capacity <span id="arrow1"></span></th>
+                                    <th onclick="sortTable(2)">Spaces Available <span id="arrow2"></span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- rows will be dynamically added here -->
+                            </tbody>
+                        </table>
+                        <div id="parkingLoadingMessage" style="display:none;">Loading data...</div>
+                        <div id="parkingErrorMessage" style="display:none;">Error fetching data. Please try again later.</div>
+                    </p>
+                </article>
+
+                <article id="petPics" class="flex-item bordered-section">
+                    <h3>Feeling down?</h3>
+                    <p>
+                        Puffins weren't enough to lift your spirits? How unusual. Click either button to see a picture of a cute pet:
+                            <br><br>
+                            <button id="fetchDogButton">Show Me a Dog!</button>
+                            <button id="fetchCatButton">Show Me a Cat!</button>
+                            <br><br>
+                        <div id="dogPic"></div>
+                        <div id="catPic"></div>
+                        <div id="petLoadingMessage" style="display:none;">Loading...</div>
+                        <div id="petErrorMessage" style="display:none;">Error fetching data. Please try again.</div>
+                    </p>
+                </article>
+
+            </div>
+        </div>
+
+        <script src="assets/javascript/actions.js"></script>
+
     </body>
 </html>

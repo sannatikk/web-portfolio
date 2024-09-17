@@ -60,6 +60,10 @@ a {
     text-decoration: underline;
 }
 
+#parkingErrorMessage, #petErrorMessage {
+    color: rgb(144, 51, 51);
+}
+
 
 /* SITE LAYOUT */ 
 
@@ -288,13 +292,6 @@ img {
     height: auto;
     justify-content: center;
     align-items: center;
-}
-
-
-/* MISC */
-
-#parkingErrorMessage, #petErrorMessage {
-    color: rgb(144, 51, 51);
 }
 
 
