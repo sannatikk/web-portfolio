@@ -82,9 +82,9 @@ a {
 
 .flex-item {
     flex: 1 1 300px; /* Grow, shrink, basis */
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
     border: 1px solid #333;
     border-radius: 8px;
     background-color: #eaeff2;
@@ -295,18 +295,18 @@ nav ul li a {
     .site-container {
         padding-left: 5px;
         padding-right: 5px;
-        padding-bottom: 10px;
+        padding-bottom: 5px;
     }
 
     .flex-container {
         flex-direction: column;
-        padding: 10px;
+        padding: 5px;
     }
     .flex-item {
         flex: 1 1 auto; /* Allow items to adjust based on content size */
         padding-left: 15px;
         padding-right: 15px;
-        padding-bottom: 10px;
+        padding-bottom: 15px;
     }
 
     .puffin-gallery {
