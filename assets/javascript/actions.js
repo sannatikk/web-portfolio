@@ -300,55 +300,63 @@ function hideMessages() {
 
 // function to fetch and display random dog image
 function fetchDogPic() {
-    // clear previous image
+    // clear previous images
     document.getElementById('dogPic').innerHTML = '';
     document.getElementById('catPic').innerHTML = '';
 
-    // showLoadingMessage(); // show loading message
+    // show loading message
+    //showLoadingMessage();
 
     // fetch image from dog API
     fetch(dogUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) { // check if the response status is OK
+                throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not ok
+            }
+            return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
+        })
         .then(data => {
-            // create an image element and set its src attribute
-            const img = document.createElement('img');
+            const img = document.createElement('img'); // create an image element and set its src attribute
             img.src = data.message; // dog API response has image URL under "message"
             img.alt = 'Random Dog';
-
-            // add image to the dogPic div
-            document.getElementById('dogPic').appendChild(img);
+            
+            document.getElementById('dogPic').appendChild(img); // add image to the dogPic div
 
             hideMessages(); // hide messages after image is displayed
         })
-        .catch(error => {
+        .catch(error => { // handles both fetch errors and errors thrown in .then()
             console.error('Error fetching dog picture:', error);
             showErrorMessage(); // show error message if an error occurs
         });
 }
 
-// function to fetch and display a random cat image
+// function to fetch and display random cat image
 function fetchCatPic() {
-    // clear previous image
+    // clear previous images
     document.getElementById('dogPic').innerHTML = '';
     document.getElementById('catPic').innerHTML = '';
 
-    // showLoadingMessage(); // Show loading message
+    // show loading message
+    //showLoadingMessage();
 
     // fetch image from cat API
     fetch(catUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) { // check if the response status is OK
+                throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not OK
+            }
+            return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
+        })
         .then(data => {
-            // create image element and set its src attribute
-            const img = document.createElement('img');
-            img.src = data[0].url; // Cat API response has image URL under "url"
+            const img = document.createElement('img'); // create an image element and set its src attribute
+            img.src = data[0].url; // cat API response has image URL under "url"
             img.alt = 'Random Cat';
-
-            // add image to catPic div
-            document.getElementById('catPic').appendChild(img);
+            
+            document.getElementById('catPic').appendChild(img); // add image to the catPic div
 
             hideMessages(); // hide messages after image is displayed
         })
-        .catch(error => {
+        .catch(error => { // handle both fetch errors and errors thrown in .then()
             console.error('Error fetching cat picture:', error);
             showErrorMessage(); // show error message if an error occurs
         });
