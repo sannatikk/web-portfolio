@@ -1,3 +1,12 @@
+/* TEXT */
+
+@font-face {
+    font-family: 'Tomatoes';
+    src: url('../fonts/Tomatoes.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
 body {
     background-color: #f1f4f6;
     font-family: 'Georgia', serif;
@@ -8,14 +17,7 @@ body {
     text-align: left;
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;
-}
-
-@font-face {
-    font-family: 'Tomatoes';
-    src: url('../fonts/Tomatoes.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
+    /* overflow-x: hidden; */
 }
 
 h1 {
@@ -39,12 +41,10 @@ h3 {
 }
 
 h4 {
-    font-family: 'Georgia', serif;
+    font-family: 'Tomatoes', serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 20px;
     margin: 0;
-    padding: 0;
-    font-style: italic;
 }
 
 p {
@@ -55,14 +55,18 @@ p {
     padding: 0;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
 a {
     color: #22164a;
     text-decoration: underline;
+}
+
+
+/* SITE LAYOUT */ 
+
+.site-container {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 .bordered-section {
@@ -74,14 +78,6 @@ a {
     background-color: #eaeff2;
 }
 
-.site-container {
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-}
-
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -91,9 +87,7 @@ a {
 
 .flex-item {
     flex: 1 1 300px; /* Grow, shrink, basis */
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
     border: 1px solid #333;
     border-radius: 8px;
     background-color: #eaeff2;
@@ -101,103 +95,8 @@ a {
     max-width: 100%;
 }
 
-#about, #contact, #playground-info, #puffins {
-    flex: 0 100%; /* Full width, no wrap */
-}
 
-button {
-    background-color: #2e5a7a;
-    font-family: 'Georgia', serif;
-    color: white; 
-    border: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-right: 10px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 15px;
-    text-align: left;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-table tbody tr:nth-child(odd) {
-    background-color: #e2eaee;
-}
-
-/* .studies-table thead {
-    background-color: #f1f4f6;
-} */
-
-.carParkTable th, .carParkTable td {
-    border: 1px solid #ddd;
-    padding: 8px;
-
-}
-
-#carParkTable th {
-    cursor: pointer;
-    position: relative; /* For positioning the hint */
-}
-
-/* Style for a subtle sort icon or label before user interaction */
-#carParkTable th::after {
-    content: ' ⇅';  /* This will show an up/down arrow next to each column */
-    font-size: 0.8em;
-    color: rgb(52, 52, 52);
-    margin-left: 5px;
-}
-
-.contact-form {
-    border: 1px solid #ccc; /* Thin border around the form */
-    padding: 20px;
-    background-color: #f8f8f8;
-    max-width: 400px; /* Maximum width of the form */
-    margin: 0 auto; /* Center the form */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-sizing: border-box;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: normal;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form input[type="tel"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-/* submit button */
-.contact-form input[type="submit"] {
-    background-color: #2e5a7a;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-.contact-form input[type="submit"]:hover {
-    background-color: #244969;
-}
+/* NAV BAR */
 
 /* hamburger icon */
 .hamburger-menu {
@@ -209,7 +108,7 @@ table tbody tr:nth-child(odd) {
     height: 22px;
     cursor: pointer;
     z-index: 10; /* make sure it's on top */
-    margin: 20px; /* adjust as needed */
+    margin: 20px;
 }
 
 /* hamburger icon bars */
@@ -220,7 +119,6 @@ table tbody tr:nth-child(odd) {
     margin: 3px 0;
     border-radius: 2px;
 }
-
 
 .nav-menu {
     display: none; /* hide the menu by default */
@@ -253,6 +151,121 @@ nav ul li a {
     font-size: 14px;
 }
 
+
+/* NON-WRAP ITEMS */
+
+#about, #contact, #playground-info, #puffins {
+    flex: 0 100%; /* Full width, no wrap */
+}
+
+
+/* BUTTONS */
+
+button {
+    background-color: #2e5a7a;
+    font-family: 'Georgia', serif;
+    color: white; 
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px 0; /* add extra space between buttons */
+}
+
+#fetchTimeButton {
+    margin-bottom: 20px;
+}
+
+
+/* TABLES */
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 15px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #e2eaee;
+}
+
+.carParkTable th, .carParkTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#carParkTable th {
+    cursor: pointer;
+    position: relative; /* This is needed to position the sort icon */
+}
+
+/* sort label for user interaction */
+#carParkTable th::after {
+    content: ' ⇅';
+}
+
+
+/* CONTACT FORM */ 
+
+.contact-form {
+    border: 1px solid #8e8e8e;
+    padding: 20px;
+    background-color: #f8f8f8;
+    max-width: 400px;
+    margin: 0 auto; /* center the form */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* submit button */
+.contact-form input[type="submit"] {
+    background-color: #2e5a7a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #244969;
+}
+
+
+/* PICTURES */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .puffin-gallery {
     display: flex;
     justify-content: center;
@@ -269,14 +282,6 @@ nav ul li a {
     object-fit: contain;
 }
 
-#fetchTimeButton {
-    margin-bottom: 20px;
-}
-
-#parkingErrorMessage, #petErrorMessage {
-    color: rgb(144, 51, 51);
-  }
-
 #dogPic, #catPic {
     display: flex;
     max-width: 600px;
@@ -285,37 +290,31 @@ nav ul li a {
     align-items: center;
 }
 
-/*
-#languageFin {
-    padding: 3px 10px;
-    font-family: 'Georgia', serif;
-    font-size: 13px;
+
+/* MISC */
+
+#parkingErrorMessage, #petErrorMessage {
+    color: rgb(144, 51, 51);
 }
 
-#languageEng {
-    padding: 3px 10px;
-    font-family: 'Georgia', serif;
-    font-size: 13px;
-}
-*/
+
+/* SMALL SCREENS */
 
 @media (max-width: 600px) {
 
     .site-container {
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-bottom: 5px;
+        padding: 5px;
     }
 
     .flex-container {
         flex-direction: column;
         padding: 5px;
+
     }
     .flex-item {
         flex: 1 1 auto; /* Allow items to adjust based on content size */
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
+        padding: 15px;
+        overflow: auto;
     }
 
     .puffin-gallery {
@@ -327,7 +326,7 @@ nav ul li a {
     }
 
     h1 {
-        font-size: 50px;
+        font-size: 45px;
     }
     
 }

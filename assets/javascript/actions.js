@@ -299,7 +299,7 @@ function fetchDogPic() {
     document.getElementById('dogPic').innerHTML = '';
     document.getElementById('catPic').innerHTML = '';
 
-    showLoadingMessage(); // Show loading message
+    // showLoadingMessage(); // Show loading message
 
     // Fetch image from dog API
     fetch(dogUrl)
@@ -327,7 +327,7 @@ function fetchCatPic() {
     document.getElementById('dogPic').innerHTML = '';
     document.getElementById('catPic').innerHTML = '';
 
-    showLoadingMessage(); // Show loading message
+    // showLoadingMessage(); // Show loading message
 
     // Fetch image from cat API
     fetch(catUrl)
