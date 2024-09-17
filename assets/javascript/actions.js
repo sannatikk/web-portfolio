@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // SLIDESHOW ACTIONS
 
-// Define a Slideshow class to encapsulate image slideshow behavior
+// define a slideshow class to encapsulate image slideshow behavior
 class Slideshow {
     constructor(images, containerId, interval) {
         this.images = images;
@@ -90,7 +90,7 @@ class Slideshow {
         this.startSlideshow();
     }
 
-    // Method to display the current image
+    // method to display current image
     showImage() {
         const { src, alt } = this.images[this.currentIndex];
         this.container.innerHTML = `
@@ -99,14 +99,14 @@ class Slideshow {
         this.currentIndex = (this.currentIndex + 1) % this.images.length;
     }
 
-    // Method to start the image slideshow
+    // method to start  image slideshow
     startSlideshow() {
-        this.showImage(); // Display the first image
+        this.showImage(); // display  first image
         setInterval(() => this.showImage(), this.interval);
     }
 }
 
-// Initialize the Slideshow class once the DOM is loaded
+// initialize the Slideshow class once the DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
     const puffinImages = [
         { src: 'assets/pictures/puffin1.jpg', alt: 'Puffin 1' },
@@ -116,22 +116,22 @@ document.addEventListener("DOMContentLoaded", function() {
         { src: 'assets/pictures/puffin5.jpg', alt: 'Puffin 5' }
     ];
     
-    // Create a new Slideshow object
+    // create new Slideshow object
     const puffinSlideshow = new Slideshow(puffinImages, 'puffin-gallery', 3000); // show puffin slideshow with 3 second intervals
 });
 
 
 // TIME FETCH ACTIONS
 
-// Function to fetch the current time in Oulu
+// function to fetch  current time in Oulu
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fetchTimeButton').addEventListener('click', function() {
-        // Get the current date and time
+        // get the current date and time
         const now = new Date();
 
-        // Define options for formatting the date/time
+        // define options for formatting date/time
         const options = {
-            timeZone: 'Europe/Helsinki', // Eastern European Time (EET)
+            timeZone: 'Europe/Helsinki', // Eastern European Time
             hour: '2-digit',
             minute: '2-digit',
             second: '2-digit',
@@ -141,11 +141,11 @@ document.addEventListener('DOMContentLoaded', function() {
             hour12: false
         };
 
-        // Format the current date/time for the specified time zone
+        // format  current date/time for specified time zone
         const formatter = new Intl.DateTimeFormat('en-US', options);
         const formattedTime = formatter.format(now);
 
-        // Display the formatted time
+        // display formatted time
         document.getElementById('time-display').textContent = `Current time in Eastern European Time is: ${formattedTime}`;
     });
 });

@@ -248,7 +248,7 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
-    height: 350px;;
+    height: 350px;
 }
 .puffin-gallery img {
     max-width: 100%;
@@ -268,7 +268,7 @@ nav ul li a {
 
 #dogPic, #catPic {
     display: flex;
-    max-width: 100%;
+    max-width: 600px;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -288,11 +288,14 @@ nav ul li a {
 }
 */
 
-@media (max-width: 775px) {
+@media (max-width: 600px) {
     .flex-container {
         flex-direction: column; /* Stack items vertically on small screens */
     }
     .flex-item {
         flex: 1 1 auto; /* Allow items to adjust based on content size */
+    }
+    #puffin-gallery {
+        height: 200px;
     }
 }
