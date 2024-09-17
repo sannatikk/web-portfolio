@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const [quoteText, quoteAuthor] = randomQuote.split(" - ");
 
         // Display quote and author separately
-        document.getElementById('quoteText').textContent = `"${quoteText}"`;  // quote
+        document.getElementById('quoteText').innerHTML = `<br>"${quoteText}"`;  // quote
         document.getElementById('quoteText').style.fontStyle = 'italic';      // italicize quote
 
         document.getElementById('quoteAuthor').textContent = `- ${quoteAuthor}`;  // author on a new line
