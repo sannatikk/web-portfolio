@@ -58,7 +58,7 @@ a {
 
 .bordered-section {
     border: 1px solid #333; 
-    padding: 1cap; 
+    padding: 20px; 
     margin: 10px;
     border-radius: 8px;
     background-color: #eaeff2;
@@ -83,6 +83,8 @@ a {
     border: 1px solid #333;
     border-radius: 8px;
     background-color: #eaeff2;
+    box-sizing: border-box;
+    max-width: 100%;
 }
 
 #about, #contact, #playground-info, #puffins {
@@ -238,27 +240,9 @@ nav ul li a {
 
 
 #fetchQuoteButton {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
-/* Flex container for images */
-.image-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
-
-.image-grid img {
-    display: block;
-    width: 100%; /* Full width of its container */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px; /* Rounded corners */
-    max-width: 200px;
-    flex: 1 1 200px; /* Flex-grow and flex-shrink with a basis of 200px */
-    box-sizing: border-box; /* Include padding and border in the width */
-
-}
 .puffin-gallery {
     display: flex;
     justify-content: center;
@@ -272,16 +256,23 @@ nav ul li a {
     height: auto;
     width: auto;
     object-fit: contain;
-
 }
 
 #fetchTimeButton {
     margin-bottom: 20px;
 }
 
-#errorMessage {
+#parkingErrorMessage, #petErrorMessage {
     color: rgb(144, 51, 51);
   }
+
+#dogPic, #catPic {
+    display: flex;
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
 
 /*
 #languageFin {
@@ -297,9 +288,11 @@ nav ul li a {
 }
 */
 
-@media (max-width: 600px) {
+@media (max-width: 775px) {
     .flex-container {
-        flex-direction: column; /* stack items vertically on small screens */
-        flex: 1 1 100%
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+    .flex-item {
+        flex: 1 1 auto; /* Allow items to adjust based on content size */
     }
 }

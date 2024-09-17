@@ -159,16 +159,16 @@ const apiURL = 'https://api.oulunliikenne.fi/proxy/graphql';
 // reference to the table body and other elements
 const tableBody = document.getElementById('tableBody');
 const carParkTable = document.getElementById('carParkTable');
-const loadingMessage = document.getElementById('loadingMessage');
-const errorMessage = document.getElementById('errorMessage');
+const parkingLoadingMessage = document.getElementById('parkingLoadingMessage');
+const parkingErrorMessage = document.getElementById('parkingErrorMessage');
 
 // Button click event listener
 document.getElementById('fetchParkingButton').addEventListener('click', () => {
   // Clear previous data and messages
   tableBody.innerHTML = '';
   carParkTable.style.display = 'none';
-  loadingMessage.style.display = 'block';
-  errorMessage.style.display = 'none';
+  parkingLoadingMessage.style.display = 'block';
+  parkingErrorMessage.style.display = 'none';
 
   // API request body (GraphQL query)
   const requestBody = JSON.stringify({
@@ -185,7 +185,7 @@ document.getElementById('fetchParkingButton').addEventListener('click', () => {
   })
   .then(response => response.json()) // Parse the response as JSON
   .then(data => {
-    loadingMessage.style.display = 'none'; // Hide loading message
+    parkingLoadingMessage.style.display = 'none'; // Hide loading message
 
     if (data.data && data.data.carParks) {
       // Track unique lot names to prevent duplicates
@@ -217,13 +217,13 @@ document.getElementById('fetchParkingButton').addEventListener('click', () => {
       tableBody.innerHTML = rows.join('');
       carParkTable.style.display = 'table'; // Show the table
     } else {
-      errorMessage.style.display = 'block'; // Show error message if data is not as expected
+      parkingErrorMessage.style.display = 'block'; // Show error message if data is not as expected
     }
   })
   .catch(error => {
     console.error('Error fetching data:', error);
-    loadingMessage.style.display = 'none'; // Hide loading message
-    errorMessage.style.display = 'block';  // Show error message
+    parkingLoadingMessage.style.display = 'none'; // Hide loading message
+    parkingErrorMessage.style.display = 'block';  // Show error message
   });
 });
 
@@ -270,3 +270,87 @@ function updateArrows(columnIndex) {
     const arrow = sortOrder[columnIndex] ? '▼' : '▲';
     document.getElementById(`arrow${columnIndex}`).textContent = arrow;
 }
+
+// PET PIC ACTIONS
+
+// Correct API URLs
+const dogUrl = "https://dog.ceo/api/breeds/image/random";
+const catUrl = "https://api.thecatapi.com/v1/images/search";
+
+// Show or hide messages
+function showLoadingMessage() {
+    document.getElementById('petLoadingMessage').style.display = 'block';
+    document.getElementById('petErrorMessage').style.display = 'none';
+}
+
+function showErrorMessage() {
+    document.getElementById('petLoadingMessage').style.display = 'none';
+    document.getElementById('petErrorMessage').style.display = 'block';
+}
+
+function hideMessages() {
+    document.getElementById('petLoadingMessage').style.display = 'none';
+    document.getElementById('petErrorMessage').style.display = 'none';
+}
+
+// Function to fetch and display a random dog image
+function fetchDogPic() {
+    // Clear previous image
+    document.getElementById('dogPic').innerHTML = '';
+    document.getElementById('catPic').innerHTML = '';
+
+    showLoadingMessage(); // Show loading message
+
+    // Fetch image from dog API
+    fetch(dogUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Create an image element and set its src attribute
+            const img = document.createElement('img');
+            img.src = data.message; // Dog API response has image URL under "message"
+            img.alt = 'Random Dog';
+
+            // Add the image to the dogPic div
+            document.getElementById('dogPic').appendChild(img);
+
+            hideMessages(); // Hide messages after image is displayed
+        })
+        .catch(error => {
+            console.error('Error fetching dog picture:', error);
+            showErrorMessage(); // Show error message if an error occurs
+        });
+}
+
+// Function to fetch and display a random cat image
+function fetchCatPic() {
+    // Clear previous image
+    document.getElementById('dogPic').innerHTML = '';
+    document.getElementById('catPic').innerHTML = '';
+
+    showLoadingMessage(); // Show loading message
+
+    // Fetch image from cat API
+    fetch(catUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Create an image element and set its src attribute
+            const img = document.createElement('img');
+            img.src = data[0].url; // Cat API response has image URL under "url"
+            img.alt = 'Random Cat';
+
+            // Add the image to the catPic div
+            document.getElementById('catPic').appendChild(img);
+
+            hideMessages(); // Hide messages after image is displayed
+        })
+        .catch(error => {
+            console.error('Error fetching cat picture:', error);
+            showErrorMessage(); // Show error message if an error occurs
+        });
+}
+
+// Attach event listeners to buttons after the DOM has loaded
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('fetchDogButton').addEventListener('click', fetchDogPic);
+    document.getElementById('fetchCatButton').addEventListener('click', fetchCatPic);
+});
