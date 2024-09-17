@@ -11,10 +11,17 @@ body {
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: 'Tomatoes';
+    src: url('/fonts/Tomatoes.woff') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
 h1 {
-    font-family: 'Georgia', serif;
-    font-weight: 400;
-    font-size: 25px;
+    font-family: 'Tomatoes', sans-serif;
+    font-weight: 200;
+    font-size: 60px;
     margin: 0;
     padding: 0;
 }
@@ -22,6 +29,12 @@ h1 {
 h2 {
     font-family: 'Georgia', serif;
     font-weight: 300;
+    font-size: 20px;
+}
+
+h3 {
+    font-family: 'Tomatoes', sans-serif;
+    font-weight: 200;
     font-size: 20px;
 }
 
@@ -47,12 +60,8 @@ img {
     height: auto;
 }
 
-.indented-paragraph {
-    text-indent: 30px;
-}
-
 a {
-    color: #182d42;
+    color: #22164a;
     text-decoration: underline;
 }
 
