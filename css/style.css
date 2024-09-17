@@ -105,6 +105,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 15px;
+    margin-right: 10px;
 }
 
 table {
@@ -307,6 +308,10 @@ nav ul li a {
         padding-bottom: 10px;
     }
     #puffin-gallery {
-        height: 200px;
+        height: 300px;
+    }
+    
+    button {
+        margin: 10px 0; /* Add extra space between buttons */
     }
 }
