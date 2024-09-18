@@ -210,7 +210,7 @@ table tbody tr:nth-child(odd) {
 
 #carParkTable th {
     cursor: pointer;
-    position: relative; /* This is needed to position the sort icon */
+    position: relative; /* needed to position the sort icon */
 }
 
 /* sort label for user interaction */
@@ -288,7 +288,7 @@ img {
 
 #dogPic, #catPic {
     display: flex;
-    max-width: 600px;
+    max-width: 100%;
     height: auto;
     justify-content: center;
     align-items: center;
@@ -309,9 +309,9 @@ img {
 
     }
     .flex-item {
-        flex: 1 1 auto; /* Allow items to adjust based on content size */
+        flex: 1 1 auto; /* allow items to adjust based on content size */
         padding: 15px;
-        overflow: auto;
+        overflow: hidden;
     }
 
     .puffin-gallery {
@@ -319,7 +319,7 @@ img {
     }
     
     button {
-        margin: 10px 0; /* Add extra space between buttons */
+        margin: 10px 0; /* add extra space between buttons */
     }
 
     h1 {
