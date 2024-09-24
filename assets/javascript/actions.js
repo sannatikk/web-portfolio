@@ -73,10 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // display quote and author separately
         document.getElementById('quoteText').innerHTML = `<br>"${quoteText}"`;  // quote on a new line
-        document.getElementById('quoteText').style.fontStyle = 'italic';      // italicize quote
+        document.getElementById('quoteText').style.fontStyle = 'italic';        // italicize quote
 
-        document.getElementById('quoteAuthor').textContent = `- ${quoteAuthor}`;  // author on a new line
-        document.getElementById('quoteAuthor').style.fontStyle = 'normal';    // make sure author is not italicized
+        document.getElementById('quoteAuthor').textContent = `- ${quoteAuthor}`;// author on a new line
+        document.getElementById('quoteAuthor').style.fontStyle = 'normal';      // make sure author is not italicized
     });
 });
 
@@ -86,30 +86,32 @@ document.addEventListener('DOMContentLoaded', function() {
 // define a slideshow class to encapsulate image slideshow behavior
 class Slideshow {
     constructor(images, containerId, interval) {
-        this.images = images;
-        this.container = document.getElementById(containerId);
-        this.currentIndex = 0;
-        this.interval = interval;
-        this.startSlideshow();
+        this.images = images;                                               // which image array to display? defined elseware, given in constructor parameter
+        this.container = document.getElementById(containerId);              // where to display images? given in constructor parameter
+        this.currentIndex = 0;                                              // always start with first image in array
+        this.interval = interval;                                           // how long to wait between images? given in constructor parameter in ms
+        this.startSlideshow();                                              // start the slideshow
     }
+
     // method to display current image
     showImage() {
-        const { src, alt } = this.images[this.currentIndex];
-        this.container.innerHTML = `
+        const { src, alt } = this.images[this.currentIndex];                // get current image src and alt text from info in constructor
+        this.container.innerHTML = `                            
             <img src="${src}" alt="${alt}"/>
-        `;
-        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+        `;                                                                  // display image in container defined in constructor, note html string
+        this.currentIndex = (this.currentIndex + 1) % this.images.length;   // move to next image, loop back to 0 if at end
     }
+    
     // method to start  image slideshow
     startSlideshow() {
-        this.showImage(); // display  first image
-        setInterval(() => this.showImage(), this.interval);
+        this.showImage();                                                   // display  first image
+        setInterval(() => this.showImage(), this.interval);                 // set interval (defined in constructor) to display next image
     }
 }
 
 // initialize the Slideshow class once the DOM is loaded
 document.addEventListener("DOMContentLoaded", function() {
-    const puffinImages = [
+    const puffinImages = [                                                  // define array of puffin images, here images are local
         { src: 'assets/pictures/puffin1.jpg', alt: 'Puffin 1' },
         { src: 'assets/pictures/puffin2.jpg', alt: 'Puffin 2' },
         { src: 'assets/pictures/puffin3.jpg', alt: 'Puffin 3' },
@@ -117,19 +119,17 @@ document.addEventListener("DOMContentLoaded", function() {
         { src: 'assets/pictures/puffin5.jpg', alt: 'Puffin 5' }
     ];
     // create new Slideshow object
-    const puffinSlideshow = new Slideshow(puffinImages, 'puffin-gallery', 3000); // 3 second intervals
+    const puffinSlideshow = new Slideshow(puffinImages, 'puffin-gallery', 3000);    // constructor parameter defines array of images, container id, and interval
 });
 
 
 // TIME FETCH ACTIONS
 
 // function to fetch  current time in Oulu
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('fetchTimeButton').addEventListener('click', function() {
-        // get current date and time
-        const now = new Date();
-        // define options for formatting date/time
-        const options = {
+document.addEventListener('DOMContentLoaded', function() {                              // don't run the code until the DOM has loaded
+    document.getElementById('fetchTimeButton').addEventListener('click', function() {   // add event listener to button
+        const now = new Date();                                                         // get current date and time
+        const options = {                                                               // define options for formatting date/time
             timeZone: 'Europe/Helsinki', // Eastern European Time
             hour: '2-digit',
             minute: '2-digit',
@@ -137,14 +137,15 @@ document.addEventListener('DOMContentLoaded', function() {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
-            hour12: false
+            hour12: false // 24-hour clock
         };
+        
         // format  current date/time for specified time zone
-        const formatter = new Intl.DateTimeFormat('en-US', options); // en-US because I want "September 17", not "17 September"
-        const formattedTime = formatter.format(now);
+        const formatter = new Intl.DateTimeFormat('en-US', options);    // en-US because I want "September 17", not "17 September"
+        const formattedTime = formatter.format(now);                    // format the current date/time
 
         // display formatted time
-        document.getElementById('time-display').textContent = `Current time in Eastern European Time is: ${formattedTime}`;
+        document.getElementById('time-display').textContent = `Current time in Eastern European Time is: ${formattedTime}`; // note html string
     });
 });
 
@@ -155,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
     
     // oulunliikenne API url
-    const apiURL = 'https://api.oulunliikenne.fi/proxy/graphql';
+    const parkURL = 'https://api.oulunliikenne.fi/proxy/graphql';
 
     // reference to the table body and other elements
     const tableBody = document.getElementById('tableBody');
@@ -177,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // fetch data from  API
-        fetch(apiURL, {
+        fetch(parkURL, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
@@ -233,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
     // let user sort by column contents
+    // this is outside the fetch event listener to avoid re-adding event listeners on each fetch
 
     let sortOrder = {}; // keeps track of sorting order for each column
 
@@ -308,42 +310,42 @@ function fetchDogPic() {
     document.getElementById('catPic').innerHTML = '';
 
     // show loading message
-    //showLoadingMessage();
+    showLoadingMessage();
 
     // fetch image from dog API
-    fetch(dogUrl)
-        .then(response => {
-            if (!response.ok) { // check if the response status is not OK
-                throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not ok
+    fetch(dogUrl)                                                           // fetch() returns a Promise, which represents a future result of an asynchronous operation
+        .then(response => {                                                 // once the promise is returned by fetch(), .then() processes the response
+            if (!response.ok) {                                             // check if the response status is not OK
+                throw new Error(`HTTP error! Status: ${response.status}`);  // throw an error into the catch block if not ok
             }
-            return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
+            return response.json();                                         // resolve the response object into a JSON object and return the Promise
         })
-        .then(data => {
-            const img = document.createElement('img'); // create an image element and set its src attribute
-            img.src = data.message; // dog API response has image URL under "message"
+        .then(data => {                                                     // this is the resolved Promise from the previous .then(), aka the JSON object which contains the data we want
+            const img = document.createElement('img');                      // create a new image element
+            img.src = data.message;                                         // set source attribute, dog API response has image URL under "message"
             img.alt = 'Random Dog';
             
-            document.getElementById('dogPic').appendChild(img); // add image to the dogPic div
+            document.getElementById('dogPic').appendChild(img);             // add image to the dogPic div
 
-            hideMessages(); // hide messages after image is displayed
+            hideMessages();                                                 // hide loading message after image is displayed
         })
-        .catch(error => { // handles both fetch errors and errors thrown in .then()
-            console.error('Error fetching dog picture:', error);
-            showErrorMessage(); // show error message if an error occurs
+        .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
+            console.error('Error fetching dog picture:', error);            // log error to console
+            showErrorMessage();                                             // show error message on page if an error occurs
         });
 }
 
 // function to fetch and display random cat image
-function fetchCatPic() {
+function fetchCatPic() {    
     // clear previous images
     document.getElementById('dogPic').innerHTML = '';
     document.getElementById('catPic').innerHTML = '';
 
     // show loading message
-    //showLoadingMessage();
+    showLoadingMessage();
 
     // fetch image from cat API
-    fetch(catUrl)
+    fetch(catUrl)   // fetch() returns a Promise, which represents a future result of an asynchronous operation
         .then(response => {
             if (!response.ok) { // check if the response status is not OK
                 throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not OK
