@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             parkingErrorMessage.style.display = 'block';  // show error message
         });
     });
+});
 
     // let user sort by column contents
 
@@ -264,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateArrows(columnIndex);
     }
 
+    /*
     function updateArrows(columnIndex) {
         // clear all arrow indicators
         for (let i = 0; i < 3; i++) { // assuming 3 columns, adjust if more
@@ -274,7 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const arrow = sortOrder[columnIndex] ? '▼' : '▲';
         document.getElementById(`arrow${columnIndex}`).textContent = arrow;
     }
-});
+    */
+
 
 // PET PIC ACTIONS
 
@@ -310,7 +313,7 @@ function fetchDogPic() {
     // fetch image from dog API
     fetch(dogUrl)
         .then(response => {
-            if (!response.ok) { // check if the response status is OK
+            if (!response.ok) { // check if the response status is not OK
                 throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not ok
             }
             return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
@@ -342,7 +345,7 @@ function fetchCatPic() {
     // fetch image from cat API
     fetch(catUrl)
         .then(response => {
-            if (!response.ok) { // check if the response status is OK
+            if (!response.ok) { // check if the response status is not OK
                 throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not OK
             }
             return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
