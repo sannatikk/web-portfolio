@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // define a slideshow class to encapsulate image slideshow behavior
 class Slideshow {
     constructor(images, containerId, interval) {
-        this.images = images;                                               // which image array to display? defined elseware, given in constructor parameter
+        this.images = images;                                               // which image array to display? defined elsewhere, given in constructor parameter
         this.container = document.getElementById(containerId);              // where to display images? given in constructor parameter
         this.currentIndex = 0;                                              // always start with first image in array
         this.interval = interval;                                           // how long to wait between images? given in constructor parameter in ms
@@ -279,6 +279,32 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(`arrow${columnIndex}`).textContent = arrow;
     }
     */
+
+
+// NUMBER TRIVIA ACTIONS
+
+const numberAPI = "http://numbersapi.com/random/trivia";
+
+function fetchNumberTrivia() {
+    fetch(numberAPI)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('numberTriviaDisplay').textContent = data;
+        })
+        .catch(error => {
+            console.error('Error fetching number trivia:', error);
+            document.getElementById('numberTriviaDisplay').textContent = 'Error fetching number trivia';
+        });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('fetchNumberButton').addEventListener('click', fetchNumberTrivia);
+});
 
 
 // PET PIC ACTIONS
