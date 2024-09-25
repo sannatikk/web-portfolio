@@ -344,9 +344,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // NUMBER TRIVIA ACTIONS
 
-const numberAPI = "http://numbersapi.com/random/trivia";
-
 function fetchNumberTrivia() {
+
+    // turns out cors proxy is needed for this API, because github pages is served over https and the numbers API is not
+    const numberAPI = "https://corsproxy.io/?" + encodeURIComponent("http://numbersapi.com/random/math?rand=" + new Date().getTime());
     fetch(numberAPI)
         .then(response => {
             if (!response.ok) {
