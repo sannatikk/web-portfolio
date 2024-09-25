@@ -1,3 +1,63 @@
+// DARK MODE TOGGLER
+
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleModeLink1 = document.getElementById('toggle-mode');   // For the first page
+    const toggleModeLink2 = document.getElementById('toggle-mode2');  // For the second page
+    const body = document.body;
+
+    // Function to toggle dark mode
+    function toggleMode() {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+            if (toggleModeLink1) {
+                toggleModeLink1.textContent = 'Switch to Light Mode';
+            }
+            if (toggleModeLink2) {
+                toggleModeLink2.textContent = 'Switch to Light Mode';
+            }
+        } else {
+            if (toggleModeLink1) {
+                toggleModeLink1.textContent = 'Switch to Dark Mode';
+            }
+            if (toggleModeLink2) {
+                toggleModeLink2.textContent = 'Switch to Dark Mode';
+            }
+        }
+
+        // Save preference to local storage
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    // On page load, check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if (toggleModeLink1) {
+            toggleModeLink1.textContent = 'Switch to Light Mode';
+        }
+        if (toggleModeLink2) {
+            toggleModeLink2.textContent = 'Switch to Light Mode';
+        }
+    }
+
+    // Add event listeners to toggle links
+    if (toggleModeLink1) {
+        toggleModeLink1.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleMode();
+        });
+    }
+
+    if (toggleModeLink2) {
+        toggleModeLink2.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleMode();
+        });
+    }
+});
+
+
 // HAMBURGER MENU ACTIONS
 
 // function to toggle  hamburger menu
@@ -30,6 +90,7 @@ function setupMenuLinks() {
 
 // setup hamburger menu links after the DOM has loaded
 document.addEventListener('DOMContentLoaded', setupMenuLinks);
+
 
 
 // CONTACT FORM ACTIONS

@@ -7,6 +7,66 @@
     font-style: normal;
 }
 
+/* DARK MODE STYLES */
+
+body.dark-mode {
+    background-color: #1b2027; /* Body background */
+    color: #ddecf4; /* General text color */
+}
+
+.dark-mode .bordered-section {
+    background-color: #1f2530; /* Background for bordered sections */
+    border-color: #444; /* Border color */
+}
+
+.dark-mode a {
+    color: #dca7a7; /* Link color */
+}
+
+.dark-mode button {
+    background-color: #501f1f; /* Button background color */
+    color: white; /* Button text color */
+}
+
+.dark-mode .nav-menu {
+    background-color: #1e1e1e; /* Navigation menu background */
+}
+
+.dark-mode .hamburger-menu .bar {
+    background-color: #eaeff2; /* Hamburger menu bar color */
+}
+
+.dark-mode table tbody tr:nth-child(odd) {
+    background-color: #1e2029; /* Dark background for odd table rows */
+}
+
+.dark-mode .contact-form {
+    border: 1px solid #444; /* Darker border */
+    background-color: #1b2027; /* Use the same color as body background */
+}
+
+.dark-mode .contact-form label {
+    color: #ddecf4; /* Light text for labels */
+}
+
+.dark-mode .contact-form input[type="text"],
+.dark-mode .contact-form input[type="email"],
+.dark-mode .contact-form input[type="tel"],
+.dark-mode .contact-form textarea {
+    background-color: #333; /* Dark background for inputs */
+    color: #ddecf4; /* Light text color for inputs */
+    border: 1px solid #444; /* Darker border for inputs */
+}
+
+.dark-mode .contact-form input[type="submit"] {
+    background-color: #501f1f; /* Match button color */
+    color: white; /* Button text color */
+}
+
+.dark-mode .contact-form input[type="submit"]:hover {
+    background-color: #662828; /* Darker shade for hover */
+}
+
 body {
     background-color: #f1f4f6;
     font-family: 'Georgia', serif;
@@ -19,6 +79,7 @@ body {
     padding: 20px;
     /* overflow-x: hidden; */
 }
+
 
 h1 {
     font-family: 'Tomatoes', sans-serif;
