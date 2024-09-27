@@ -159,7 +159,7 @@ a {
     border-radius: 8px;
     background-color: #eaeff2;
     box-sizing: border-box;
-    max-width: 100%;
+    max-width: 100%;   
 }
 
 
@@ -360,33 +360,47 @@ img {
 
 /* SMALL SCREENS */
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
     .site-container {
-        padding: 5px;
-    }
+        margin: 0px; /* remove margin around the container */
+        padding: 10px;
+        }
 
     .flex-container {
-        flex-direction: column;
-        padding: 5px;
-
+        flex-direction: column; /* stack items vertically */
+        margin: 0; /* remove additional margin */
+        padding: 0; /* remove padding to avoid unnecessary spacing */
+        justify-content: center; /* center items in the flex container */
+        align-items: center; /* center items in the flex container */
     }
+
     .flex-item {
         flex: 1 1 auto; /* allow items to adjust based on content size */
-        padding: 15px;
-        overflow: hidden;
+        padding: 12px; /* keep padding for spacing between border and content*/
+        margin: 3px 0 0; /* add vertical margin for spacing between items */
+        width: 100%; /* make sure items take full width */
+        box-sizing: border-box; /* include padding and border in width */
+        overflow-x: auto;
     }
 
     .puffin-gallery {
-        height: 275px;
+        height: 275px; 
     }
     
     button {
-        margin: 10px 0; /* add extra space between buttons */
+        margin: 10px 0; /* space between buttons */
     }
 
     h1 {
         font-size: 45px;
     }
     
+}
+
+@media (max-width: 400px) {
+    
+    h1 {
+        font-size: 30px;
+    }
 }
