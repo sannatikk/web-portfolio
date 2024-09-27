@@ -1,4 +1,4 @@
-/* TEXT */
+/* FONT */
 
 @font-face {
     font-family: 'Tomatoes';
@@ -66,6 +66,8 @@ body.dark-mode {
 .dark-mode .contact-form input[type="submit"]:hover {
     background-color: #662828; /* Darker shade for hover */
 }
+
+/* OTHER DEFAULT TEXT SETTINGS */
 
 body {
     background-color: #f1f4f6;

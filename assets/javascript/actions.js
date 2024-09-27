@@ -184,9 +184,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// TIME FETCH ACTIONS
+// CURRENT TIME ACTIONS
 
-// function to fetch  current time in Oulu
+// function to get current time in Oulu
 document.addEventListener('DOMContentLoaded', function() {                              // don't run the code until the DOM has loaded
     document.getElementById('fetchTimeButton').addEventListener('click', function() {   // add event listener to button
         const now = new Date();                                                         // get current date and time
