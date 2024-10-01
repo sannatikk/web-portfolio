@@ -10,61 +10,64 @@
 /* DARK MODE STYLES */
 
 body.dark-mode {
-    background-color: #1b2027; /* Body background */
-    color: #ddecf4; /* General text color */
+    background-color: #1b2027;
+    color: #ddecf4;
+}
+
+.dark-mode .flex-item {
+    background-color: #1f2530;
 }
 
 .dark-mode .bordered-section {
-    background-color: #1f2530; /* Background for bordered sections */
-    border-color: #444; /* Border color */
+    border-color: #444;
 }
 
 .dark-mode a {
-    color: #dca7a7; /* Link color */
+    color: #dca7a7;
 }
 
 .dark-mode button {
-    background-color: #501f1f; /* Button background color */
-    color: white; /* Button text color */
+    background-color: #501f1f;
+    color: #ddecf4; 
 }
 
 .dark-mode .nav-menu {
-    background-color: #1e1e1e; /* Navigation menu background */
+    background-color: #1e1e1e;
 }
 
 .dark-mode .hamburger-menu .bar {
-    background-color: #eaeff2; /* Hamburger menu bar color */
+    background-color: #ddecf4;
 }
 
 .dark-mode table tbody tr:nth-child(odd) {
-    background-color: #1e2029; /* Dark background for odd table rows */
+    background-color: #1e2029;
 }
 
 .dark-mode .contact-form {
-    border: 1px solid #444; /* Darker border */
-    background-color: #1b2027; /* Use the same color as body background */
+    border: 1px solid #444;
+    background-color: #1b2027;
 }
 
 .dark-mode .contact-form label {
-    color: #ddecf4; /* Light text for labels */
+    color: #ddecf4;
 }
 
 .dark-mode .contact-form input[type="text"],
 .dark-mode .contact-form input[type="email"],
 .dark-mode .contact-form input[type="tel"],
 .dark-mode .contact-form textarea {
-    background-color: #333; /* Dark background for inputs */
-    color: #ddecf4; /* Light text color for inputs */
-    border: 1px solid #444; /* Darker border for inputs */
+    background-color: #333;
+    color: #ddecf4;
+    border: 1px solid #444;
 }
 
 .dark-mode .contact-form input[type="submit"] {
-    background-color: #501f1f; /* Match button color */
-    color: white; /* Button text color */
+    background-color: #501f1f; 
+    color: #ddecf4;
 }
 
 .dark-mode .contact-form input[type="submit"]:hover {
-    background-color: #662828; /* Darker shade for hover */
+    background-color: #662828; /* darker shade for hover */
 }
 
 /* OTHER DEFAULT TEXT SETTINGS */
@@ -79,7 +82,6 @@ body {
     text-align: left;
     margin: 0;
     padding: 20px;
-    /* overflow-x: hidden; */
 }
 
 
@@ -138,27 +140,21 @@ a {
 
 .bordered-section {
     border: 1px solid #333; 
-    padding-left: 10px;
-    padding-right: 10px;    
-    margin: 10px;
     border-radius: 8px;
-    background-color: #eaeff2;
 }
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
     justify-content: space-between;
 }
 
 .flex-item {
-    flex: 1 1 300px; /* Grow, shrink, basis */
-    padding: 20px;
-    border: 1px solid #333;
-    border-radius: 8px;
+    flex: 1 1 300px; /* grow, shrink, basis */
+    padding: 20px;    
+    margin: 10px;
     background-color: #eaeff2;
-    box-sizing: border-box;
+    box-sizing: border-box; /* include padding and border in width */
     max-width: 100%;   
 }
 
@@ -378,7 +374,7 @@ img {
     .flex-item {
         flex: 1 1 auto; /* allow items to adjust based on content size */
         padding: 12px; /* keep padding for spacing between border and content*/
-        margin: 3px 0 0; /* add vertical margin for spacing between items */
+        margin: 10px 0 0; /* add vertical margin for spacing between items */
         width: 100%; /* make sure items take full width */
         box-sizing: border-box; /* include padding and border in width */
         overflow-x: auto;
