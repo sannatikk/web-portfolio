@@ -1,58 +1,58 @@
 // DARK MODE TOGGLER
 
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleModeLink1 = document.getElementById('toggle-mode');   // For the first page
-    const toggleModeLink2 = document.getElementById('toggle-mode2');  // For the second page
-    const body = document.body;
+document.addEventListener('DOMContentLoaded', function() {              // wait until DOM is loaded to run the code
+    const toggleModeLink1 = document.getElementById('toggle-mode');     // define portfolio page toggle link
+    const toggleModeLink2 = document.getElementById('toggle-mode2');    // define playground page toggle link
+    const body = document.body; // references the entire body section aka the whole page
 
-    // Function to toggle dark mode
+    // function to toggle dark mode
     function toggleMode() {
-        body.classList.toggle('dark-mode');
+        body.classList.toggle('dark-mode');                             // toggle dark mode class on body, note toggle is a built-in method
 
-        if (body.classList.contains('dark-mode')) {
-            if (toggleModeLink1) {
-                toggleModeLink1.textContent = 'Switch to Light Mode';
+        if (body.classList.contains('dark-mode')) {                     // if dark mode class is currently present
+            if (toggleModeLink1) {                                      // if this is the portfolio page
+                toggleModeLink1.textContent = 'Switch to Light Mode';   // update link text to switch to light mode
             }
-            if (toggleModeLink2) {
-                toggleModeLink2.textContent = 'Switch to Light Mode';
+            if (toggleModeLink2) {                                      // if this is the playground page
+                toggleModeLink2.textContent = 'Switch to Light Mode';   // update link text to switch to light mode
             }
-        } else {
-            if (toggleModeLink1) {
-                toggleModeLink1.textContent = 'Switch to Dark Mode';
+        } else {                                                        // if dark mode class is not present
+            if (toggleModeLink1) {                                      // if this is the portfolio page
+                toggleModeLink1.textContent = 'Switch to Dark Mode';    // update link text to switch to dark mode
             }
-            if (toggleModeLink2) {
-                toggleModeLink2.textContent = 'Switch to Dark Mode';
+            if (toggleModeLink2) {                                      // if this is the playground page
+                toggleModeLink2.textContent = 'Switch to Dark Mode';    // update link text to switch to dark mode
             }
         }
 
-        // Save preference to local storage
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        // save preference to local storage
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light'); // user's perference will be remembered even after page reload, "light" is explicitly defined as default
     }
 
-    // On page load, check local storage for theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        if (toggleModeLink1) {
-            toggleModeLink1.textContent = 'Switch to Light Mode';
+    // on page load, check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme');                   // get theme preference from local storage
+    if (savedTheme === 'dark') {                                        // if dark mode is saved in local storage
+        body.classList.add('dark-mode');                                // add dark mode class to body
+        if (toggleModeLink1) {                                          // if this is the portfolio page     
+            toggleModeLink1.textContent = 'Switch to Light Mode';       // update link text to switch to light mode
         }
-        if (toggleModeLink2) {
-            toggleModeLink2.textContent = 'Switch to Light Mode';
+        if (toggleModeLink2) {                                          // if this is the playground page
+            toggleModeLink2.textContent = 'Switch to Light Mode';       // update link text to switch to light mode
         }
     }
 
-    // Add event listeners to toggle links
-    if (toggleModeLink1) {
-        toggleModeLink1.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleMode();
+    // add event listeners to toggle links
+    if (toggleModeLink1) {                                              // if this is the portfolio page
+        toggleModeLink1.addEventListener('click', function(e) {         // add click event listener to toggle link
+            e.preventDefault();                                         // prevent default behavior of link, which is to navigate to another page
+            toggleMode();                                               // call toggleMode function to switch between dark and light mode
         });
     }
 
-    if (toggleModeLink2) {
-        toggleModeLink2.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleMode();
+    if (toggleModeLink2) {                                              // if this is the playground page
+        toggleModeLink2.addEventListener('click', function(e) {         // add click event listener to toggle link
+            e.preventDefault();                                         // prevent default behavior of link, which is to navigate to another page
+            toggleMode();                                               // call toggleMode function to switch between dark and light mode
         });
     }
 });
@@ -62,34 +62,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // function to toggle  hamburger menu
 function toggleMenu() {
-    const menu = document.getElementById('navMenu') || document.getElementById('navMenu2') || document.getElementById('navMenu3');
-    const hamburger = document.getElementById('hamburger-menu');
+    const menu = document.getElementById('navMenu') || document.getElementById('navMenu2') || document.getElementById('navMenu3');  // select menu based on current page
+    // const hamburger = document.getElementById('hamburger-menu'); // select hamburger menu button element by id, not currently needed
 
     // toggle 'active' class to show/hide menu
-    menu.classList.toggle('active');
-    hamburger.classList.toggle('active');
+    menu.classList.toggle('active');                                // toggle 'active' class to show/hide menu, note toggle is a built-in method
+    // hamburger.classList.toggle('active');                        // toggle 'active' class to show/hide hamburger menu button, not currently needed
 }
 
 // function to close hamburger menu
 function closeMenu() {
     const menu = document.getElementById('navMenu') || document.getElementById('navMenu2') || document.getElementById('navMenu3');
-    const hamburger = document.getElementById('hamburger-menu');
+    // const hamburger = document.getElementById('hamburger-menu'); // not currently needed
     
     // remove 'active' class to hide the menu
-    menu.classList.remove('active');
-    hamburger.classList.remove('active');
+    menu.classList.remove('active');                                // remove 'active' class to hide menu
+    // hamburger.classList.remove('active');                        // remove 'active' class to hide hamburger menu button, not currently needed
 }
 
 // attach event listeners to links to close hamburger menu on click
 function setupMenuLinks() {
-    const menuLinks = document.querySelectorAll('.nav-menu a'); // select all menu links
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu); // add click event listener to each link
-    });
+    const menuLinks = document.querySelectorAll('.nav-menu a');     // select all menu links
+    menuLinks.forEach(link => {                                     // loop through each link    
+        link.addEventListener('click', closeMenu);                  // add click event listener to each link to close the menu when clicked
+    }); 
 }
 
 // setup hamburger menu links after the DOM has loaded
-document.addEventListener('DOMContentLoaded', setupMenuLinks);
+document.addEventListener('DOMContentLoaded', setupMenuLinks);      // call setupMenuLinks function after DOM has loaded
 
 
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', setupMenuLinks);
 
 // function to confirm contact form submission
 function confirmSubmission() {
-    return confirm("Are you sure you want to submit the form?");
+    return confirm("Are you sure you want to submit the form?");    // confirm is a built-in function that displays a dialog box with a message and OK/Cancel buttons
 }
 
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         // select random quote from array
-        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const randomIndex = Math.floor(Math.random() * quotes.length); // Math.floor is a built-in function that rounds down to the nearest whole number, .random returns a random number between 0 and 1, multiplied by the length of the quotes array
         const randomQuote = quotes[randomIndex];
 
         // split quote and author based on the dash
@@ -214,119 +214,119 @@ document.addEventListener('DOMContentLoaded', function() {                      
 // PARKING LOT ACTIONS
 
 // don't run the code until the DOM has loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {       // wait until DOM is loaded to run the code
     
     // oulunliikenne API url
-    const parkURL = 'https://api.oulunliikenne.fi/proxy/graphql';
+    const parkURL = 'https://api.oulunliikenne.fi/proxy/graphql';   // API URL for fetching parking lot data
 
     // reference to the table body and other elements
-    const tableBody = document.getElementById('tableBody');
-    const carParkTable = document.getElementById('carParkTable');
-    const parkingLoadingMessage = document.getElementById('parkingLoadingMessage');
-    const parkingErrorMessage = document.getElementById('parkingErrorMessage');
+    const tableBody = document.getElementById('tableBody');         // reference to the table body
+    const carParkTable = document.getElementById('carParkTable');   // reference to the table
+    const parkingLoadingMessage = document.getElementById('parkingLoadingMessage'); // reference to the loading message
+    const parkingErrorMessage = document.getElementById('parkingErrorMessage');    // reference to the error message
 
     // button click event listener
-    document.getElementById('fetchParkingButton').addEventListener('click', () => {
+    document.getElementById('fetchParkingButton').addEventListener('click', () => { // add click event listener to button
         // Clear previous data and messages
-        tableBody.innerHTML = '';
-        carParkTable.style.display = 'none';
-        parkingLoadingMessage.style.display = 'block';
-        parkingErrorMessage.style.display = 'none';
+        tableBody.innerHTML = '';                                   // clear previous data
+        carParkTable.style.display = 'none';                        // hide table
+        parkingLoadingMessage.style.display = 'block';              // show loading message
+        parkingErrorMessage.style.display = 'none';                 // don't show error message
 
         // API request body (GraphQL query)
-        const requestBody = JSON.stringify({
-            query: "{ carParks { name, maxCapacity, spacesAvailable } }"
+        const requestBody = JSON.stringify({                        // convert object to JSON string
+            query: "{ carParks { name, maxCapacity, spacesAvailable } }"    // GraphQL query to fetch car park data
         });
 
         // fetch data from  API
-        fetch(parkURL, {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
+        fetch(parkURL, {                                            // fetch() returns a Promise, which represents a future result of an asynchronous operation
+            method: 'POST',                                         // POST method to send data to the server
+            headers: {                                              // headers to specify content type
+            'Content-Type': 'application/json'                      // content type is JSON
             },
-            body: requestBody
+            body: requestBody                                       // request body contains the GraphQL query
         })
-        .then(response => response.json()) // parse response as JSON
-        .then(data => {
-            parkingLoadingMessage.style.display = 'none'; // hide loading message
+        .then(response => response.json())                          // parse response as JSON
+        .then(data => {                                             // data is the resolved Promise from the previous .then(), aka the JSON object which contains the data we want
+            parkingLoadingMessage.style.display = 'none';           // hide loading message
 
-            if (data.data && data.data.carParks) { // check if data is valid
+            if (data.data && data.data.carParks) {                  // if data is valid
 
                 // track unique lot names to prevent duplicates
-                const uniqueNames = new Set();
-                const rows = data.data.carParks
-                    .filter(park => {
-                    const name = park.name || "unknown ☹";
-                    if (uniqueNames.has(name)) {
-                        return false; // skip duplicates
-                    } else {
-                        uniqueNames.add(name);
-                        return true;
+                const uniqueNames = new Set();                      // Set object to store unique names
+                const rows = data.data.carParks                     // map data to table rows
+                    .filter(park => {                               // filter out duplicates, null, or undefined values; .filter returns a new array with elements that pass the test
+                    const name = park.name || "unknown ☹";          // replace null or undefined values with "unknown ☹"
+                    if (uniqueNames.has(name)) {                    // check if name is already in the Set
+                        return false;                               // skip duplicates
+                    } else {                                        // if name is not in the Set
+                        uniqueNames.add(name);                      // add name to the Set
+                        return true;                                // include unique names
                     }
                     })
-                    .map(park => {
+                    .map(park => {                                  // map data to table rows; .map returns a new array with transformed elements
                         // replace null or undefined values with "unknown ☹"
-                        const name = park.name || "unknown ☹";
-                        const maxCapacity = park.maxCapacity != null ? park.maxCapacity : "unknown ☹";
-                        const spacesAvailable = park.spacesAvailable != null ? park.spacesAvailable : "unknown ☹";
+                        const name = park.name || "unknown ☹";                                                         // replace null or undefined names with "unknown ☹"
+                        const maxCapacity = park.maxCapacity != null ? park.maxCapacity : "unknown ☹";                 // replace null or undefined capacities with "unknown ☹"
+                        const spacesAvailable = park.spacesAvailable != null ? park.spacesAvailable : "unknown ☹";     // replace null or undefined availabilities with "unknown ☹"
                 
                         return `<tr>
                             <td>${name}</td>
                             <td>${maxCapacity}</td>
                             <td>${spacesAvailable}</td>
-                        </tr>`; // created table row
+                        </tr>`;                                     // now we have a table row with name, max capacity, and spaces available for each unique car park
                     });
 
                 // populate table with unique data
-                tableBody.innerHTML = rows.join('');
-                carParkTable.style.display = 'table'; // show table
+                tableBody.innerHTML = rows.join('');                // join rows into a single html string and add to table body
+                carParkTable.style.display = 'table';               // show final table
 
             } else {
-                parkingErrorMessage.style.display = 'block'; // show error message if data is weird
+                parkingErrorMessage.style.display = 'block';        // show error message if data is weird
             }
             
         })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-            parkingLoadingMessage.style.display = 'none'; // hide loading message
-            parkingErrorMessage.style.display = 'block';  // show error message
+        .catch(error => {                                           // handle both fetch errors and errors thrown in .then()
+            console.error('Error fetching data:', error);           // log error to console
+            parkingLoadingMessage.style.display = 'none';           // hide loading message
+            parkingErrorMessage.style.display = 'block';            // show error message, "block" is a display value that makes the element visible
         });
     });
 });
 
-    // let user sort by column contents
-    // this is outside the fetch event listener to avoid re-adding event listeners on each fetch
+// let user sort by column contents
+// this is outside the fetch event listener to avoid re-adding event listeners on each fetch
 
-    let sortOrder = {}; // keeps track of sorting order for each column
+let sortOrder = {};                                             // keeps track of sorting order for each column
 
-    function sortTable(columnIndex) {
-        const table = document.getElementById("carParkTable");
-        const tbody = table.querySelector("tbody");
-        const rows = Array.from(tbody.querySelectorAll("tr"));
+function sortTable(columnIndex) {                               // sort table by column index
+    const table = document.getElementById("carParkTable");      // get table element
+    const tbody = table.querySelector("tbody");                 // get table body element, querySelector returns the first element that matches the selector
+    const rows = Array.from(tbody.querySelectorAll("tr"));      // get all table rows as an array: querySelectorAll returns a NodeList, which is not an array, but can be converted to one
+    
+    // toggle sort order: asc or desc
+    sortOrder[columnIndex] = !sortOrder[columnIndex];           // toggle sort order for the clicked column
+    
+    rows.sort((rowA, rowB) => {                                 // sort rows based on column contents
+        const cellA = rowA.querySelectorAll("td")[columnIndex].textContent.trim();  // get cell content for row A, trim removes whitespace from both ends of a string
+        const cellB = rowB.querySelectorAll("td")[columnIndex].textContent.trim();  // get cell content for row B, trim removes whitespace from both ends of a string
         
-        // toggle sort order: asc or desc
-        sortOrder[columnIndex] = !sortOrder[columnIndex];
-        
-        rows.sort((rowA, rowB) => {
-            const cellA = rowA.querySelectorAll("td")[columnIndex].textContent.trim();
-            const cellB = rowB.querySelectorAll("td")[columnIndex].textContent.trim();
-            
-            if (!isNaN(cellA) && !isNaN(cellB)) {
-                // sort numerically if column contains numbers
-                return sortOrder[columnIndex] ? cellA - cellB : cellB - cellA;
-            } else {
-                // sort alphabetically for text columns
-                return sortOrder[columnIndex] ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);
-            }
-        });
+        if (!isNaN(cellA) && !isNaN(cellB)) {                   // check if both cells contain numbers, isNaN is a built-in function that checks if a value is NaN aka not a number
+            // sort numerically if column contains numbers
+            return sortOrder[columnIndex] ? cellA - cellB : cellB - cellA;  // sort numbers based on sort order
+        } else {                                                // if contents are not numbers
+            // sort alphabetically for text columns
+            return sortOrder[columnIndex] ? cellA.localeCompare(cellB) : cellB.localeCompare(cellA);    // sort text based on sort order
+        }
+    });
 
-        // clear and re-add sorted rows
-        tbody.innerHTML = "";
-        rows.forEach(row => tbody.appendChild(row));
+    // clear and re-add sorted rows
+    tbody.innerHTML = "";                                   // clear table body
+    rows.forEach(row => tbody.appendChild(row));            // add sorted rows back to table body
 
-        // update sorting arrows
-        updateArrows(columnIndex);
-    }
+    // update sorting arrows
+    updateArrows(columnIndex);                              // update arrows to indicate sort order, currently disabled
+}
 
     /*
     function updateArrows(columnIndex) {
@@ -347,55 +347,55 @@ document.addEventListener('DOMContentLoaded', () => {
 function fetchNumberTrivia() {
 
     // turns out cors proxy is needed for this API, because github pages is served over https and the numbers API is not
-    const numberAPI = "https://corsproxy.io/?" + encodeURIComponent("http://numbersapi.com/random/math?rand=" + new Date().getTime());
-    fetch(numberAPI)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+    const numberAPI = "https://corsproxy.io/?" + encodeURIComponent("http://numbersapi.com/random/math?rand=" + new Date().getTime()); // url is encoded to avoid special characters, cors proxy is used to bypass CORS restrictions (Cross-Origin Resource Sharing) due to http vs https mismatch
+    fetch(numberAPI)                                                        // fetch() returns a Promise, which represents a future result of an asynchronous operation
+        .then(response => {                                                 // once the promise is returned by fetch(), .then() processes the response
+            if (!response.ok) {                                             // check if the response status is not OK
+                throw new Error(`HTTP error! Status: ${response.status}`);  // throw an error into the catch block if not OK
             }
-            return response.text();
+            return response.text();                                         // resolve the response object into text and return the Promise
         })
-        .then(data => {
-            document.getElementById('numberTriviaDisplay').textContent = data;
+        .then(data => {                                                     // this is the resolved Promise from the previous .then(), aka the text which contains the data we want
+            document.getElementById('numberTriviaDisplay').textContent = data;  // display number trivia on the page
         })
-        .catch(error => {
-            console.error('Error fetching number trivia:', error);
-            document.getElementById('numberTriviaDisplay').textContent = 'Error fetching number trivia';
+        .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
+            console.error('Error fetching number trivia:', error);          // log error to console
+            document.getElementById('numberTriviaDisplay').textContent = 'Error fetching number trivia';    // display error message on page if an error occurs
         });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('fetchNumberButton').addEventListener('click', fetchNumberTrivia);
+    document.getElementById('fetchNumberButton').addEventListener('click', fetchNumberTrivia);  // add click event listener to button
 });
 
 
 // PET PIC ACTIONS
 
 // API URLs
-const dogUrl = "https://dog.ceo/api/breeds/image/random";
-const catUrl = "https://api.thecatapi.com/v1/images/search";
+const dogUrl = "https://dog.ceo/api/breeds/image/random";                   // here cors proxy is not needed because the dog API is served over https
+const catUrl = "https://api.thecatapi.com/v1/images/search";                // here cors proxy is not needed because the cat API is served over https
 
 // show or hide messages
 function showLoadingMessage() {
-    document.getElementById('petLoadingMessage').style.display = 'block';
-    document.getElementById('petErrorMessage').style.display = 'none';
+    document.getElementById('petLoadingMessage').style.display = 'block';   // show loading message
+    document.getElementById('petErrorMessage').style.display = 'none';      // hide error message
 }
 
 function showErrorMessage() {
-    document.getElementById('petLoadingMessage').style.display = 'none';
-    document.getElementById('petErrorMessage').style.display = 'block';
+    document.getElementById('petLoadingMessage').style.display = 'none';    // hide loading message
+    document.getElementById('petErrorMessage').style.display = 'block';     // show error message
 }
 
 function hideMessages() {
-    document.getElementById('petLoadingMessage').style.display = 'none';
-    document.getElementById('petErrorMessage').style.display = 'none';
+    document.getElementById('petLoadingMessage').style.display = 'none';    // hide loading message
+    document.getElementById('petErrorMessage').style.display = 'none';      // hide error message
 }
 
 // function to fetch and display random dog image
 function fetchDogPic() {
     // clear previous images
-    document.getElementById('dogPic').innerHTML = '';
-    document.getElementById('catPic').innerHTML = '';
+    document.getElementById('dogPic').innerHTML = '';                       // clear previous images    
+    document.getElementById('catPic').innerHTML = '';                       // clear previous images
 
     // show loading message
     showLoadingMessage();
@@ -411,7 +411,7 @@ function fetchDogPic() {
         .then(data => {                                                     // this is the resolved Promise from the previous .then(), aka the JSON object which contains the data we want
             const img = document.createElement('img');                      // create a new image element
             img.src = data.message;                                         // set source attribute, dog API response has image URL under "message"
-            img.alt = 'Random Dog';
+            img.alt = 'Random Dog';                                         // set alt attribute for accessibility
             
             document.getElementById('dogPic').appendChild(img);             // add image to the dogPic div
 
@@ -426,32 +426,32 @@ function fetchDogPic() {
 // function to fetch and display random cat image
 function fetchCatPic() {    
     // clear previous images
-    document.getElementById('dogPic').innerHTML = '';
-    document.getElementById('catPic').innerHTML = '';
+    document.getElementById('dogPic').innerHTML = '';                       // clear previous images
+    document.getElementById('catPic').innerHTML = '';                       // clear previous images
 
     // show loading message
     showLoadingMessage();
 
     // fetch image from cat API
-    fetch(catUrl)   // fetch() returns a Promise, which represents a future result of an asynchronous operation
+    fetch(catUrl)                                                           // fetch() returns a Promise, which represents a future result of an asynchronous operation
         .then(response => {
-            if (!response.ok) { // check if the response status is not OK
-                throw new Error(`HTTP error! Status: ${response.status}`); // throw an error into the catch block if not OK
+            if (!response.ok) {                                             // check if the response status is not OK
+                throw new Error(`HTTP error! Status: ${response.status}`);  // throw an error into the catch block if not OK
             }
-            return response.json(); // process the response object and return a Promise that resolves to the parsed JSON
+            return response.json();                                         // process the response object and return a Promise that resolves to the parsed JSON
         })
         .then(data => {
-            const img = document.createElement('img'); // create an image element and set its src attribute
-            img.src = data[0].url; // cat API response has image URL under "url"
-            img.alt = 'Random Cat';
+            const img = document.createElement('img');                      // create an image element and set its src attribute
+            img.src = data[0].url;                                          // cat API response has image URL under "url"
+            img.alt = 'Random Cat';                                         // set alt attribute for accessibility
             
-            document.getElementById('catPic').appendChild(img); // add image to the catPic div
+            document.getElementById('catPic').appendChild(img);             // add image to the catPic div
 
-            hideMessages(); // hide messages after image is displayed
+            hideMessages();                                                 // hide messages after image is displayed
         })
-        .catch(error => { // handle both fetch errors and errors thrown in .then()
-            console.error('Error fetching cat picture:', error);
-            showErrorMessage(); // show error message if an error occurs
+        .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
+            console.error('Error fetching cat picture:', error);            // log error to console
+            showErrorMessage();                                             // show error message if an error occurs
         });
 }
 

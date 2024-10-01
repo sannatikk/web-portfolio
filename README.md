@@ -4,6 +4,10 @@
 
 This website started out as just refreshing my HTML skills by building a simple portfolio, but somehow grew into my final course project. Since I wanted to keep the semi-respectable portfolio I had already built, I decided to add a special "Project Playground" web page accessible through the hamburger menu. This Playground page contains the elements required in the grading criteria for the grade I aimed for which didn't really fit into a portfolio. (Like a slideshow of puffin photos or quotes from the BBC radio comedy Cabin Pressure.)
 
+### Website location:
+
+My website is currently live [here](https://sannatikk.github.io/web-kurssi-testiprojekti/)!
+
 ### Grading criteria:
 
 Full marks are given if every item on the list is completed:
@@ -18,7 +22,7 @@ Full marks are given if every item on the list is completed:
 ✅ Tables are effectively used  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- course table in index.html, API call response formatted as table in playground.html*  
 ✅ Consistent use of semantic HTML throughout, ensuring better structure and understanding of the content  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- throughout index.html and playground.html, e.g. header, main, nav, section, article...*
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- throughout index.html and playground.html, e.g. header, main, nav, section, article, footer...*
 
 #### CSS:
 ✅ Basic CSS styling (colors, fonts)  
@@ -26,11 +30,11 @@ Full marks are given if every item on the list is completed:
 ✅ Use of classes and IDs to style specific elements  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- present throughout style.css*  
 ✅ Implementation of responsive design elements  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- media query (style.css line 363-390), flexible images, flexbox, fluid scalable layout used throughout site*  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- media query (style.css line 363-390), flexible images, fluid scalable layout used throughout site*  
 ✅ Use of layouts for advanced user interfaces (arrays, float, flexbox, css grid)  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- flexbox used throughout site*  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- flexbox used throughout site, including mobile view*  
 ✅ Styling demonstrates a strong grasp of layout principles, aesthetics, and user experience  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- consistent modern look and layout, dark and light mode for personal preference, high-contrast for accessibility but not unpleasantly stark, flex items arranged so that similar ones are in each "row" and large/important ones automatically take up 100% width*  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*- consistent modern look and layout, easily visible hamburger menu, dark and light mode for personal preference, high-contrast for accessibility but not unpleasantly stark, flex items arranged so that similar ones are in each "row" and large/important ones automatically take up 100% width*  
 
 #### JavaScript Basics:
 ✅ Simple interactions (like alerts on a button click)  
