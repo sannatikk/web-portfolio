@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             "I am Beyoncé, always. - Michael Scott",
             "I am running away from my responsibilities. And it feels good. - Michael Scott",
             "I knew exactly what to do. But in a much more real sense, I had no idea what to do. - Michael Scott",
-            "Charm is the viscuous grease with which he oils his flimflam machine. - Frasier Crane",
+            "Charm is the viscous grease with which he oils his flimflam machine. - Frasier Crane",
             "The lemon is in play. - Douglas Richardson",
             "Snoopadoop the cockerpoo, noblest of hounds. - Hercules Shipwright",
             "You've put your finger, Arthur, as is so often your way, on the crux of a thorny theological problem. - Douglas Richardson",
