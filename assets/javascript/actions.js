@@ -289,12 +289,12 @@ document.addEventListener('DOMContentLoaded', () => {       // wait until DOM is
         .catch(error => {                                           // handle both fetch errors and errors thrown in .then()
             console.error('Error fetching data:', error);           // log error to console
             parkingLoadingMessage.style.display = 'none';           // hide loading message
-            parkingErrorMessage.style.display = 'block';            // show error message, "block" is a display value that makes the element visible
+            parkingErrorMessage.style.display = 'block';            // show generic error message on page, "block" is a display value that makes the element visible
         });
     });
 });
 
-// let user sort by column contents
+// let user sort by column contents, fun fact this nearly cost me my sanity
 // this is outside the fetch event listener to avoid re-adding event listeners on each fetch
 
 let sortOrder = {};                                             // keeps track of sorting order for each column
@@ -360,7 +360,7 @@ function fetchNumberTrivia() {
         })
         .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
             console.error('Error fetching number trivia:', error);          // log error to console
-            document.getElementById('numberTriviaDisplay').textContent = 'Error fetching number trivia';    // display error message on page if an error occurs
+            document.getElementById('numberTriviaDisplay').textContent = 'Error fetching number trivia';    // display generic error message on page if an error occurs
         });
 }
 
@@ -419,7 +419,7 @@ function fetchDogPic() {
         })
         .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
             console.error('Error fetching dog picture:', error);            // log error to console
-            showErrorMessage();                                             // show error message on page if an error occurs
+            showErrorMessage();                                             // show generic error message on page if an error occurs
         });
 }
 
@@ -451,7 +451,7 @@ function fetchCatPic() {
         })
         .catch(error => {                                                   // handle both fetch errors and errors thrown in .then()
             console.error('Error fetching cat picture:', error);            // log error to console
-            showErrorMessage();                                             // show error message if an error occurs
+            showErrorMessage();                                             // show generic error message on page if an error occurs
         });
 }
 
