@@ -7,6 +7,10 @@
     font-style: normal;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* DARK MODE STYLES */
 
 body.dark-mode {
@@ -84,7 +88,6 @@ body {
     padding: 20px;
 }
 
-
 h1 {
     font-family: 'Tomatoes', sans-serif;
     font-weight: 200;
@@ -158,6 +161,17 @@ a {
     max-width: 100%;   
 }
 
+footer {
+    flex: 0 100%; /* Full width, no wrap */
+    text-align: center;
+}
+
+/* NON-WRAP ITEMS */
+
+footer, #about, #contact, #playground-info, #puffins {
+    flex: 0 100%; /* Full width, no wrap */
+}
+
 
 /* NAV BAR */
 
@@ -212,13 +226,6 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
-}
-
-
-/* NON-WRAP ITEMS */
-
-#about, #contact, #playground-info, #puffins {
-    flex: 0 100%; /* Full width, no wrap */
 }
 
 
