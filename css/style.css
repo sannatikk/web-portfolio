@@ -168,7 +168,7 @@ footer {
 
 /* NON-WRAP ITEMS */
 
-footer, #about, #contact, #playground-info, #puffins {
+#about, #contact, #playground-info, #puffins {
     flex: 0 100%; /* Full width, no wrap */
 }
 
