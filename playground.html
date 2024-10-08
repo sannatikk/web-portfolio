@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        
+
         <main class="site-container">
         
             <header id="header">
@@ -91,7 +91,6 @@
                             <br><br>                    
                             <div id="puffin-gallery" class="puffin-gallery"></div>
                         </p>
-
                 </article>
 
                 <article id="parkingSpots" class="flex-item bordered-section">
@@ -99,7 +98,7 @@
                     <p>
                         Click the button to find out how many parking spots are currently available in public parking lots in Oulu:
                             <br><br>
-                            <button id="fetchParkingButton">How's the Parking?</button>
+                            <button id="fetchParkingButton" type="button">How's the Parking?</button>
                             <br><br>
                         <table id="carParkTable" style="display: none;"> <!-- hide at first -->
                             <thead>
@@ -118,13 +117,25 @@
                     </p>
                 </article>
 
+                <article id="knittingQuiz" class="flex-item bordered-section">
+                    <h3>Knitting Quiz</h3>
+                    <form id="quiz-form">
+                        <div id="question-container">
+                            <!-- questions will be dynamically added here -->
+                        </div>
+                        <button id="submit-quiz-button" type="submit" style="margin-top: 25px; margin-bottom: 25px">Submit Quiz</button>
+                        <div id="score-container" class="score-container" style="display: none;"> <!-- hide at first -->
+                            <h5>Your Score: <span id="score"></span></h5>
+                            <button id="restart-button" type="button">Restart Quiz</button>
+                </article>
+
                 <article id="petPics" class="flex-item bordered-section">
                     <h3>Feeling down?</h3>
                     <p>
                         Puffins weren't enough to lift your spirits? How unusual. Click either button to see a picture of a cute pet:
                             <br><br>
-                            <button id="fetchDogButton">Show Me a Dog!</button>
-                            <button id="fetchCatButton">Show Me a Cat!</button>
+                            <button id="fetchDogButton" type="button">Show Me a Dog!</button>
+                            <button id="fetchCatButton" type="button">Show Me a Cat!</button>
                             <br><br>
                         <div id="dogPic"></div>
                         <div id="catPic"></div>

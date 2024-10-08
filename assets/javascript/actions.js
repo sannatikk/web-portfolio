@@ -328,19 +328,6 @@ function sortTable(columnIndex) {                               // sort table by
     updateArrows(columnIndex);                              // update arrows to indicate sort order, currently disabled
 }
 
-    /*
-    function updateArrows(columnIndex) {
-        // clear all arrow indicators
-        for (let i = 0; i < 3; i++) { // assuming 3 columns, adjust if more
-            document.getElementById(`arrow${i}`).textContent = '';
-        }
-
-        // add appropriate arrow to the sorted column
-        const arrow = sortOrder[columnIndex] ? '▼' : '▲';
-        document.getElementById(`arrow${columnIndex}`).textContent = arrow;
-    }
-    */
-
 
 // NUMBER TRIVIA ACTIONS
 
@@ -459,4 +446,126 @@ function fetchCatPic() {
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('fetchDogButton').addEventListener('click', fetchDogPic);
     document.getElementById('fetchCatButton').addEventListener('click', fetchCatPic);
+});
+
+
+// QUIZ
+
+document.addEventListener("DOMContentLoaded", () => {                   // wait until DOM is loaded to run the code
+    const questions = [                                                 // array of quiz questions
+        {
+            question: "What is the most common cast-on technique?",
+            answers: [
+                { text: "Purl", correct: false },
+                { text: "Italian", correct: false },
+                { text: "Long-tail", correct: true },
+                { text: "Ribbed", correct: false }
+            ]
+        },
+        {
+            question: "Which is a very grippy needle material?",
+            answers: [
+                { text: "Stainless steel", correct: false },
+                { text: "Bamboo", correct: true },
+                { text: "Plastic", correct: false },
+                { text: "None of the above", correct: false }
+            ]
+        },
+        {
+            question: "Which of these is a real decrease?",
+            answers: [
+                { text: "Sl1 k2tog tbl psso", correct: true },
+                { text: "M1R k2tog sl1", correct: false },
+                { text: "YO M1L", correct: false },
+                { text: "ws k1B pwise tfl", correct: false }
+            ]
+        },
+        {
+            question: "Which property is important in ethical knitting?",
+            answers: [
+                { text: "Suresing-free", correct: false },
+                { text: "Treasing-free", correct: false },
+                { text: "Roesing-free", correct: false },
+                { text: "Mulesing-free", correct: true }
+            ]
+        },
+    ];
+
+    let score = 0;                                                              // initialize score to 0
+    const submitButton = document.getElementById('submit-quiz-button');         // reference to the submit button
+    const scoreContainer = document.getElementById('score-container');          // reference to the score container
+    const questionContainer = document.getElementById('question-container');    // reference to the question container
+    const bodyElement = document.body;                                          // to check for the current theme
+
+    function showQuestions() {
+        questionContainer.innerHTML = '';                                       // clear previous questions
+
+        questions.forEach((question, index) => {                                // loop through each question
+            const questionElement = document.createElement('div');              // create a new div element for each question
+            questionElement.classList.add('question');                          // add 'question' class to each div
+
+            const questionText = document.createElement('h5');                  // create a new h5 element for each question
+            questionText.innerText = `${index + 1}. ${question.question}`;      // set question text
+            questionElement.appendChild(questionText);                          // add question text to question element
+
+            question.answers.forEach((answer) => {                              // loop through each answer
+                const label = document.createElement('label');                  // create a new label element for each answer
+                label.innerHTML = `                                             
+                    <input type="radio" name="question${index}" value="${answer.correct}">
+                    ${answer.text}
+                `;                                                              // set input type, name, value, and text for each answer
+                questionElement.appendChild(label);                             // add label to question element
+                questionElement.appendChild(document.createElement('br'));      // add line break
+            });
+
+            questionContainer.appendChild(questionElement);                     // add question element to question container
+        });
+
+        questionContainer.style.display = 'block';                              // display questions
+        submitButton.style.display = 'block';                                   // display submit button
+
+        if (bodyElement.classList.contains('dark-theme')) {                     // if dark theme is enabled
+            applyDarkThemeToQuestions();                                        // apply dark theme to questions
+        }
+    }
+
+    // apply dark theme to all question elements
+    function applyDarkThemeToQuestions() {
+        const questionElements = document.querySelectorAll('#question-container h4');
+        questionElements.forEach((questionHeader) => {
+            questionHeader.classList.add('dark-theme');
+        });
+    }
+
+    // event listener for submit quiz button
+    submitButton.addEventListener('click', (event) => {
+        event.preventDefault();                             // prevent default button behavior
+
+        score = 0;                                          // reset score
+        questions.forEach((question, index) => {            // loop through each question
+            const selectedAnswer = document.querySelector(`input[name="question${index}"]:checked`);    // get selected answer
+            if (selectedAnswer && selectedAnswer.value === "true") {                                    // if answer is correct 
+                score++;                                    // increment score
+            }
+        });
+
+        // hide questions and submit button, then display the score
+        questionContainer.style.display = 'none';           // hide questions
+        submitButton.style.display = 'none';                // hide submit button
+        scoreContainer.style.display = 'block';             // display score container
+        if (score === questions.length) {                   // if all answers are correct
+            document.getElementById('score').innerText = `${score} out of ${questions.length}, that's great!`;
+        } else {
+            document.getElementById('score').innerText = `${score} out of ${questions.length}, better luck next time!`;
+        }
+    });
+
+    // restart the quiz
+    document.getElementById('restart-button').addEventListener('click', () => {
+        score = 0; // reset score
+        scoreContainer.style.display = 'none';
+        showQuestions(); 
+    });
+
+    showQuestions();
 });
