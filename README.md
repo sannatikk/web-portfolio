@@ -71,7 +71,7 @@ Full marks are given if every item on the list is completed:
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- light/dark mode toggle (actions.js lines 3-58),  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- image slideshow (actions.js line 147-184),  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- math trivia populated dynamically (actions.js line 334-352)  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- knitting quiz (actions.js lines 454-571)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- knitting quiz (actions.js lines 454-571)  
 ✅ **Consistent use of Object-Oriented JavaScript principles**  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- custom slideshow class defined and object dynamically created (actions.js line 148-184)*  
 
