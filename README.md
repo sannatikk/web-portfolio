@@ -2,7 +2,7 @@
 
 ## OAMK 3rd semester course (5 ECTS), specialization in Software Development
 
-This website started out as just refreshing my HTML+CSS skills by building a simple portfolio, but somehow grew into my final course project. Since I wanted to keep the semi-respectable portfolio I had already built, I decided to add a special "Project Playground" web page for plain JavaScript sections, accessible through the hamburger menu. This Playground page contains the elements required in the grading criteria for the grade I aimed for which didn't really fit into a portfolio. (Like a slideshow of puffin photos or quotes from the BBC radio comedy Cabin Pressure.)
+This website started out as just refreshing my HTML+CSS skills by building a simple portfolio, but somehow grew into my final course project. Since I wanted to keep the semi-respectable portfolio I had already built, I decided to add a special "Project Playground" web page for additional plain JavaScript sections, accessible through the hamburger menu. This Playground page contains the elements required in the grading criteria for the grade I aimed for which didn't really fit into a portfolio. (Like a slideshow of puffin photos or quotes from the BBC radio comedy Cabin Pressure.)
 
 ### Website location:
 
@@ -10,7 +10,7 @@ My website is currently live [here](https://sannatikk.github.io/web-kurssi-testi
 
 ## Grading criteria:
 
-Full marks are given if every item on the list is completed:
+Full marks were given if every item on the list is completed:
 
 ### HTML:
 ✅ **Basic HTML structure is present**  
