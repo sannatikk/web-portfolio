@@ -6,7 +6,7 @@ This website started out as just refreshing my HTML+CSS skills by building a sim
 
 ### Website location:
 
-My website is currently live [here](https://sannatikk.github.io/web-kurssi-testiprojekti/)!
+My website is currently live [here](https://sannatikk.github.io/web-portfolio/)!
 
 ## Grading criteria:
 
