@@ -2,7 +2,9 @@
 
 ## OAMK 3rd semester Intro To Web Applications course (5 ECTS), specialization in Software Development
 
-This website started out as just refreshing my HTML+CSS skills by building a simple portfolio, but somehow grew into my final course project. Since I wanted to keep the semi-respectable portfolio I had already built, I decided to add a special "Project Playground" web page for additional plain JavaScript sections, accessible through the hamburger menu. This Playground page contains the elements required in the grading criteria for the grade I aimed for which didn't really fit into a portfolio. (Like a slideshow of puffin photos or quotes from the BBC radio comedy Cabin Pressure.)
+This website started out as just refreshing my HTML+CSS skills by building a simple portfolio, but somehow grew into my final course project. Since I wanted to keep the semi-respectable portfolio I had already built, I decided to add a special "Project Playground" web page for additional plain JavaScript sections, accessible through the hamburger menu. This Playground page contains the elements required in the grading criteria for the grade I aimed for which didn't really fit into a portfolio. (Like a slideshow of puffin photos or quotes from the BBC radio comedy Cabin Pressure.) 
+
+**UPDATE 5/2025**: Since I am now actually using this website as a portfolio page (and thought having things like slideshows of puffins might be considered a bit eccentric), I have disabled the Playground link from the hamburger menu. If you really want to see what was in it, check out the code file playground.html!
 
 ### Website location:
 
